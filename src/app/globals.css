@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+:root {
+  --mineral: #e3e2de;
+  --midnight: #050505;
+  --footer-black: #0a0a0a;
+  --ink: #1b0e0d;
+  --white: #ffffff;
+  /* Industrial yellow: the one accent. On light surfaces it is paired with ink. */
+  --yellow: #f5d547;
+  --yellow-rgb: 245 213 71;
+  --white-muted: rgb(255 255 255 / 0.4);
+  --rule-dark: rgb(27 14 13 / 0.18);
+  --rule-light: rgb(255 255 255 / 0.12);
+
+  --pad: clamp(24px, 5vw, 80px);
+  --gap: clamp(16px, 1.7vw, 24px);
+  --nav-h: clamp(72px, 6.2vw, 88px);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+  color-scheme: dark light;
+}
+
+@theme inline {
+  --color-mineral: var(--mineral);
+  --color-midnight: var(--midnight);
+  --color-ink: var(--ink);
+  --color-yellow: var(--yellow);
+  --color-rule: var(--rule-dark);
+  --font-display: var(--font-clash);
+  --font-sans: var(--font-general);
+}
+
+html {
+  background: var(--midnight);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  background: var(--mineral);
+  color: var(--ink);
+  font-family: var(--font-general), "Helvetica Neue", Arial, sans-serif;
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--yellow);
+  color: var(--ink);
+}
+
+/* Yellow focus ring on dark surfaces, ink on light ones (--focus is set per surface). */
+:focus-visible {
+  outline: 2px solid var(--focus, var(--yellow));
+  outline-offset: 3px;
+}
+
+/* "First" in the Hardware First Residency name. Every instance sits on a dark surface. */
+.hf-first {
+  color: var(--yellow);
+}
+
+/* "Residency" in the brand name: italic (synthesised; the fonts ship no italic),
+   with a hair of room so the slanted last letter is never clipped. */
+.hf-res {
+  font-style: italic;
+  padding-right: 0.08em;
+}
