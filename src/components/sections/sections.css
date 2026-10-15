@@ -2096,6 +2096,23 @@ html:not(.hf-js) .hf-tile-days li {
 }
 
 /* =========================================================
+   Get involved — supporters
+   ========================================================= */
+
+.hf-support-head {
+  grid-column: 1 / span 7;
+}
+
+.hf-support-head .hf-inv-copy {
+  max-width: 38rem;
+}
+
+.hf-support-head .hf-apply-cta {
+  align-self: flex-start;
+  max-width: 100%;
+}
+
+/* =========================================================
    Tablet
    ========================================================= */
 

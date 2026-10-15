@@ -6,7 +6,14 @@ const FAQS = [
   ["What are the dates?", "1–6 November 2026."],
   ["Where is it?", "Hyderabad, India, at The Founding Co."],
   ["How many builders are selected?", "Six."],
-  ["Who should apply?", "Hardware builders with a project to move forward, ready for a week in person."],
+  [
+    "Who should apply?",
+    "Hardware builders who already have a working model and need engineering, fabrication, mentorship, or industry support to take it closer to a real product.",
+  ],
+  [
+    "Will I leave with a finished product?",
+    "The goal is to make meaningful progress from a working project towards a real product. A finished product in six days is not guaranteed.",
+  ],
   [
     "What is included?",
     "Lab access, mentorship, engineering support, industry connections, stay, food and workspace.",

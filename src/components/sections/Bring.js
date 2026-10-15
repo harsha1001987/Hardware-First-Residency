@@ -5,8 +5,8 @@ import { useId, useState } from "react";
 // Expectation cards: titles at rest, details on click. One open at a time.
 const ITEMS = [
   {
-    title: "Your build",
-    text: "A prototype or device in progress, at any stage. Bring it in and push it forward.",
+    title: "Your working build",
+    text: "A working hardware model, however rough or incomplete. Not just an idea.",
   },
   {
     title: "Your tools & materials",

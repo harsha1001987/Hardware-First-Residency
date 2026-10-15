@@ -38,7 +38,7 @@ export default function Hero() {
             project.
           </span>{" "}
           <span className="hf-hero-sub hf-reveal" style={{ "--d": "270ms" }}>
-            Leave with Product.
+            Let&rsquo;s take it closer to a product.
           </span>
         </h1>
 
