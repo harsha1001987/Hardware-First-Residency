@@ -8,7 +8,7 @@ const FACTS = [
   { label: "Dates", value: "01–06 November 2026" },
   { label: "Location", value: "Hyderabad, India" },
   { label: "Cohort", value: "06 selected builders" },
-  { label: "Deadline", value: "26 October 2026", urgent: true },
+  { label: "Deadline", value: "24 October 2026", urgent: true },
 ];
 
 // A one-line window that rolls 01–06 and lands on the word (see Hero.css).

@@ -5,7 +5,7 @@ import { ICONS, LAKSH_LINKS, PCB_CUPID_LINKS } from "@/components/SocialIcons";
 const DETAILS = [
   ["Residency", "01–06 November 2026"],
   ["Location", "Hyderabad, India"],
-  ["Application deadline", "26 October 2026"],
+  ["Application deadline", "24 October 2026"],
   ["Selection", "Six selected builders"],
 ];
 

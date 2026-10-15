@@ -18,7 +18,7 @@ const FAQS = [
     "No. Components, fabrication, resources and credits depend on availability.",
   ],
   ["Is there a deposit?", "A refundable deposit of ₹5,000 is required to participate."],
-  ["When is the deadline?", "26 October 2026."],
+  ["When is the deadline?", "24 October 2026."],
   ["How will I hear back?", "By email."],
 ];
 

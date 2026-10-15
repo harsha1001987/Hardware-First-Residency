@@ -11,7 +11,7 @@ const BRIEF = [
     "Includes",
     "Hardware infrastructure, PCB and firmware support, mentorship, industry connections, stay, food, and workspace",
   ],
-  ["Deadline", "26 October 2026"],
+  ["Deadline", "24 October 2026"],
 ];
 
 // A disclosure (not a modal): the button toggles a panel and reports its

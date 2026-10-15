@@ -107,6 +107,7 @@
 .hf-nav-actions {
   display: flex;
   align-items: center;
+  flex: none;
   gap: 1rem;
 }
 
@@ -128,14 +129,21 @@
   transition:
     background-color 0.22s ease,
     border-color 0.22s ease,
-    color 0.22s ease;
+    color 0.22s ease,
+    transform 0.22s var(--ease-out),
+    box-shadow 0.22s ease;
 }
 
-.hf-nav-apply:hover {
+/* Hover/focus: the button fills yellow, lifts a touch and glows. */
+.hf-nav-apply:hover,
+.hf-nav-apply:focus-visible {
   background: var(--yellow);
   border-color: var(--yellow);
   color: var(--ink);
-  box-shadow: 0 8px 22px -14px rgb(var(--yellow-rgb) / 0.9);
+  transform: translateY(-1px);
+  box-shadow:
+    0 0 0 3px rgb(var(--yellow-rgb) / 0.18),
+    0 10px 26px -10px rgb(var(--yellow-rgb) / 0.75);
 }
 
 .hf-arrow {
@@ -143,11 +151,47 @@
   transition: transform 0.25s var(--ease-out);
 }
 
-.hf-nav-apply:hover .hf-arrow {
+.hf-nav-apply:hover .hf-arrow,
+.hf-nav-apply:focus-visible .hf-arrow {
   transform: translate(2px, -2px);
 }
 
 .hf-nav-apply-short {
+  display: none;
+}
+
+/* Hosted by + organiser logos, next to Apply. */
+.hf-nav-hosted {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  font-size: 0.5625rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--white-muted);
+}
+
+.hf-nav-hosted img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  border-radius: 2px;
+}
+
+.hf-nav-hosted-label {
+  margin-right: 0.15rem;
+}
+
+.hf-nav-hosted--bar {
+  flex: none;
+  padding-right: 1rem;
+  border-right: 1px solid var(--rule-light);
+}
+
+.hf-nav-hosted--panel {
   display: none;
 }
 
@@ -251,5 +295,23 @@
 
   .hf-nav-toggle {
     letter-spacing: 0.12em;
+  }
+}
+
+/* Tight desktop widths: logos only. Phones: logos move into the menu. */
+@media (max-width: 1379.98px) and (min-width: 1200px) {
+  .hf-nav-hosted--bar .hf-nav-hosted-label {
+    display: none;
+  }
+}
+
+@media (max-width: 599.98px) {
+  .hf-nav-hosted--bar {
+    display: none;
+  }
+
+  .hf-nav-panel .hf-nav-hosted--panel {
+    display: flex;
+    padding: 1rem 0 0.25rem;
   }
 }

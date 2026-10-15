@@ -1,8 +1,21 @@
 "use client";
 
 import { useEffect, useId, useState } from "react";
-import { APPLY_URL, NAV_LINKS } from "@/config/site";
+import Image from "next/image";
+import { APPLY_URL, NAV_LINKS, PARTNERS } from "@/config/site";
 import "./SiteNav.css";
+
+// "Hosted by" with both organisers' logos (shown in the bar and in the menu).
+function HostedBy({ className }) {
+  return (
+    <p className={`hf-nav-hosted ${className}`}>
+      <span className="hf-nav-hosted-label">Hosted by</span>
+      {[PARTNERS.pcbCupid, PARTNERS.laksh].map((p) => (
+        <Image key={p.name} src={p.logo} alt={p.name} title={p.name} width={p.w} height={p.h} />
+      ))}
+    </p>
+  );
+}
 
 export default function SiteNav() {
   const [open, setOpen] = useState(false);
@@ -82,6 +95,7 @@ export default function SiteNav() {
         </ul>
 
         <div className="hf-nav-actions">
+          <HostedBy className="hf-nav-hosted--bar" />
           <a href={APPLY_URL} className="hf-nav-apply">
             <span className="hf-nav-apply-long">Apply for residency</span>
             <span className="hf-nav-apply-short">Apply</span>
@@ -102,6 +116,7 @@ export default function SiteNav() {
       </nav>
 
       <div id={panelId} className="hf-nav-panel" hidden={!open}>
+        <HostedBy className="hf-nav-hosted--panel" />
         <ul>
           {NAV_LINKS.map((link) => (
             <li key={link.href}>
