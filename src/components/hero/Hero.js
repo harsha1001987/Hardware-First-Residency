@@ -35,10 +35,10 @@ export default function Hero() {
             Bring your
           </span>{" "}
           <span className="hf-hero-line hf-reveal" style={{ "--d": "170ms" }}>
-            build.
+            project.
           </span>{" "}
           <span className="hf-hero-sub hf-reveal" style={{ "--d": "270ms" }}>
-            Leave with momentum.
+            Leave with Product.
           </span>
         </h1>
 

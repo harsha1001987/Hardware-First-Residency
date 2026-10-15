@@ -14,23 +14,23 @@ const BUILDS_URL = "https://events.pcbcupid.com/builds/";
 
 const PHOTOS = [
   {
-    src: "/images/community-group.jpg",
+    src: "/images/kid.jpeg",
     label: "Past events",
-    caption: "Builders and their projects at a past community hardware event.",
+    caption: "A young builder driving screws into a stacked board assembly at a past event.",
     href: EVENTS_URL,
     cta: "See past events",
   },
   {
-    src: "/images/community-wearable.jpg",
+    src: "/images/product.png",
     label: "Past builds",
-    caption: "A wearable prototype: sensor modules and a microcontroller board wired onto a cap.",
+    caption: "A four-wheeled robot car with ultrasonic sensors, Arduino boards and a micro:bit on the bench.",
     href: BUILDS_URL,
     cta: "See past builds",
   },
   {
-    src: "/images/community-demo.jpg",
+    src: "/images/kid2.jpeg",
     label: "Past events",
-    caption: "Builders at a demo table with a servo-driven arm prototype.",
+    caption: "A mentor working alongside a young builder at a past community hardware event.",
     href: EVENTS_URL,
     cta: "See past events",
   },
@@ -49,9 +49,9 @@ const PHOTOS = [
     caption: "Joining wires with solder over a toroidal coil.",
   },
   {
-    src: "/images/build-robot.jpg",
+    src: "/images/product2.png",
     label: "Past builds",
-    caption: "A wheeled robot build: stacked frame, ultrasonic sensors and hand-wired boards.",
+    caption: "A hand-wired robot build on a 3D-printed chassis, mid-debug with a multimeter.",
     href: BUILDS_URL,
     cta: "See past builds",
   },
