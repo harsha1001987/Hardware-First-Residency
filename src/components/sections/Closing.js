@@ -127,7 +127,7 @@ export function SiteFooter() {
 
       <div className="hf-foot-bottom">
         <p className="hf-foot-love">For the love of hardware.</p>
-        <p className="hf-foot-credit">GST: {COMPANY.gst}</p>
+        
       </div>
     </footer>
   );
