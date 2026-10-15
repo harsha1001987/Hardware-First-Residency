@@ -261,92 +261,6 @@
 
 /* ---------- Build brief ---------- */
 
-.hf-brief-toggle {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.7rem;
-  height: 3.6rem;
-  padding: 0 1.2rem;
-  overflow: hidden;
-  border: 1px solid rgb(255 255 255 / 0.16);
-  border-radius: 3px;
-  background: rgb(227 226 222 / 0.05);
-  backdrop-filter: blur(12px);
-  color: rgb(255 255 255 / 0.88);
-  font: inherit;
-  font-size: 0.6875rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition:
-    background-color 0.3s ease,
-    border-color 0.3s ease,
-    color 0.3s ease;
-}
-
-/* A fine yellow line travels along the bottom edge on hover. */
-.hf-brief-toggle::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 1px;
-  background: var(--yellow);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.35s var(--ease-out);
-}
-
-.hf-brief-toggle:hover,
-.hf-brief[data-open] .hf-brief-toggle {
-  background: rgb(227 226 222 / 0.1);
-  border-color: rgb(255 255 255 / 0.3);
-  color: var(--white);
-}
-
-.hf-brief-toggle:hover::after,
-.hf-brief[data-open] .hf-brief-toggle::after {
-  transform: scaleX(1);
-}
-
-.hf-brief-plus {
-  position: relative;
-  width: 0.7rem;
-  height: 0.7rem;
-  transition: transform 0.3s var(--ease-out);
-}
-
-.hf-brief-plus::before,
-.hf-brief-plus::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: calc(50% - 1px);
-  width: 100%;
-  height: 2px;
-  background: var(--yellow);
-  transition: transform 0.3s var(--ease-out);
-}
-
-.hf-brief-plus::after {
-  transform: rotate(90deg);
-}
-
-.hf-brief-toggle:hover .hf-brief-plus {
-  transform: rotate(45deg);
-}
-
-.hf-brief[data-open] .hf-brief-plus {
-  transform: none;
-}
-
-.hf-brief[data-open] .hf-brief-plus::after {
-  transform: rotate(0deg);
-}
-
 /* Desktop: the panel floats over the lower photograph, clear of the message. */
 .hf-brief-panel {
   position: absolute;
@@ -370,7 +284,7 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .hf-brief-panel:not([hidden]) {
+  .hf-brief-panel {
     animation: hf-brief-in 0.3s var(--ease-out);
   }
 }
@@ -416,24 +330,6 @@
   margin: 0;
   font-size: 0.875rem;
   line-height: 1.45;
-}
-
-.hf-brief-close {
-  margin-top: 0.75rem;
-  padding: 0.5rem 0;
-  border: 0;
-  background: none;
-  color: var(--muted);
-  font: inherit;
-  font-size: 0.625rem;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  cursor: pointer;
-}
-
-.hf-brief-close:hover {
-  color: var(--white);
 }
 
 /* ---------- Secondary link ---------- */
@@ -670,7 +566,7 @@
     font-size: clamp(1.375rem, 5.2vw, 2.5rem);
   }
 
-  /* The brief opens inline, beneath its control, never over the CTA. */
+  /* The brief sits inline, beneath the CTA, never over it. */
   .hf-brief {
     position: relative;
   }
@@ -729,11 +625,6 @@
     justify-content: space-between;
   }
 
-  .hf-brief-toggle {
-    width: 100%;
-    justify-content: center;
-  }
-
   .hf-hero-facts {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -790,7 +681,7 @@
 /* The actions row's fade-in creates a stacking context, which would trap the
    brief panel beneath the photograph. Lifting the whole message column above
    the photo (z-index on a grid item; no positioning, so the panel still
-   anchors to the hero) keeps the open panel on top. */
+   anchors to the hero) keeps the panel on top. */
 .hf-hero-main {
   z-index: 5;
 }
