@@ -750,7 +750,7 @@
 }
 
 .hf-hero-photo {
-  object-position: 78% 50%;
+  object-position: 65% 50%;
   opacity: 0.9;
 }
 
@@ -769,7 +769,7 @@
 
 @media (max-width: 1023.98px) {
   .hf-hero-photo {
-    object-position: 70% 40%;
+    object-position: 60% 45%;
     opacity: 0.75;
   }
 

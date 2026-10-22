@@ -22,12 +22,27 @@ const TILES = [
       alt: "A workbench with a soldering station, helping hands with a magnifier, and a breadboard prototype.",
       sizes: "(max-width: 767px) 100vw, (max-width: 1023px) 100vw, 42vw",
     },
+    partner: {
+      src: "/images/sillymonks.png",
+      alt: "SillyMonks — laser cutting and CAD services",
+      label: "Laser cutting by SillyCut",
+    },
   },
   {
     key: "pcb",
     title: "PCB & design support",
     hint: "services",
     boxes: ["CAD", "Schematic review", "Electronics design", "PCB fabrication"],
+    image: {
+      src: "/images/pcb.png",
+      alt: "Two green microcontroller PCBs on a dark desk with miniature astronaut figurine and potted plant.",
+      sizes: "(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 34vw",
+    },
+    partner: {
+      src: "/images/lion.png",
+      alt: "LionCircuits — PCB fabrication partner",
+      label: "PCB fabrication by LionCircuits",
+    },
   },
   {
     key: "fw",
@@ -65,7 +80,7 @@ const TILES = [
 const pad = (n) => String(n).padStart(2, "0");
 
 function Tile({ tile, n, open, onToggle }) {
-  const { key, title, text, more, boxes, hint, days, image } = tile;
+  const { key, title, text, more, boxes, hint, days, image, partner } = tile;
   return (
     <article
       className={`hf-tile hf-tile--${key}`}
@@ -123,6 +138,18 @@ function Tile({ tile, n, open, onToggle }) {
             {more && <p className="hf-tile-more">{more}</p>}
           </div>
         </div>
+        {partner && (
+          <div className="hf-tile-partner">
+            <Image
+              src={partner.src}
+              alt={partner.alt}
+              width={80}
+              height={32}
+              className="hf-tile-partner-logo"
+            />
+            <span className="hf-tile-partner-label">{partner.label}</span>
+          </div>
+        )}
       </div>
     </article>
   );

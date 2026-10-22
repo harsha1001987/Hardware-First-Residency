@@ -68,8 +68,8 @@ export default function Hero() {
       <figure className="hf-hero-media">
         <div className="hf-hero-media-frame">
           <Image
-            src="/images/hero-build.jpg"
-            alt="Tweezers lowering a microcontroller chip onto a bare prototype circuit board marked v0.2."
+            src="/images/hero.jpeg"
+            alt="A green microcontroller board with USB-C connector, components and pin headers on a dark surface."
             fill
             sizes="100vw"
             loading="eager"
