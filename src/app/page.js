@@ -7,6 +7,7 @@ import Experience from "@/components/sections/Experience";
 import Gallery from "@/components/sections/Gallery";
 import Partners from "@/components/sections/Partners";
 import RevealObserver from "@/components/sections/RevealObserver";
+import Sponsors from "@/components/sections/Sponsors";
 import Support from "@/components/sections/Support";
 import Toolkit from "@/components/sections/Toolkit";
 import "@/components/sections/sections.css";
@@ -21,6 +22,7 @@ export default function Home() {
         <Toolkit />
         <Bring />
         <Gallery />
+        <Sponsors />
         <Partners />
         <Support />
         <Faqs />
