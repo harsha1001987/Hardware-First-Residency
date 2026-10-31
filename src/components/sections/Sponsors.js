@@ -38,7 +38,6 @@ export default function Sponsors() {
             {SUPPORTERS.map((org) => (
               <SponsorSlot key={org.name} org={org} kind="support" />
             ))}
-            <li className="hf-spn-slot hf-spn-slot--tba">More supporters to be announced</li>
           </ul>
         </div>
 

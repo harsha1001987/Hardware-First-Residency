@@ -26,11 +26,11 @@ export const PARTNERS = {
   foundingCo: { name: "The Founding Co.", logo: "/logos/the-founding-co.png", w: 150, h: 150 },
 };
 
-// Sponsors strip above "Who's doing it". Add an entry to show another logo;
-// the "more to be announced" slot always stays last in SUPPORTERS.
+// Sponsors strip above "Who's doing it". Add an entry to show another logo.
 // Optional `href` makes a slot a link — only add real URLs.
 export const SUPPORTERS = [
   { name: "Malpani Ventures", logo: "/logos/malpani-ventures.png", w: 147, h: 44 },
+  { name: "T-Works", logo: "/logos/t-works.jpg", w: 910, h: 909 },
 ];
 
 export const SPONSOR_PARTNERS = [

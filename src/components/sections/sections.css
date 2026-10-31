@@ -1537,6 +1537,12 @@ html:not(.hf-js) .hf-tile-days li {
   height: clamp(40px, 3.8vw, 56px);
 }
 
+.hf-spn-logo--support[src*="t-works"],
+.hf-spn-logo--support[alt="T-Works logo"] {
+  height: clamp(64px, 6vw, 88px);
+  border-radius: 50%;
+}
+
 .hf-spn-logo--partner {
   height: clamp(32px, 3vw, 46px);
 }
