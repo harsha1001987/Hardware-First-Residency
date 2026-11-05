@@ -5,9 +5,9 @@ import { useCallback, useEffect, useRef, useState } from "react";
 
 /*
  * The field notebook. Photos from past PCB Cupid events link to the events
- * gallery; photos of past builds link to the builds archive. The two Unsplash
- * reference shots don't depict the residency, so they open in the viewer
- * instead and are labelled "Reference".
+ * gallery; photos of past builds link to the builds archive. The Unsplash
+ * reference shot doesn't depict the residency, so it opens in the viewer
+ * instead and is labelled "Reference".
  */
 const EVENTS_URL = "https://events.pcbcupid.com/gallery/";
 const BUILDS_URL = "https://events.pcbcupid.com/builds/";
@@ -40,20 +40,6 @@ const PHOTOS = [
     h: 1067,
     label: "Reference",
     caption: "A development board on a breadboard, wired out to several sensor modules.",
-  },
-  {
-    src: "/images/hands-soldering.jpg",
-    w: 1600,
-    h: 1066,
-    label: "Reference",
-    caption: "Joining wires with solder over a toroidal coil.",
-  },
-  {
-    src: "/images/product2.png",
-    label: "Past builds",
-    caption: "A hand-wired robot build on a 3D-printed chassis, mid-debug with a multimeter.",
-    href: BUILDS_URL,
-    cta: "See past builds",
   },
 ];
 
@@ -106,9 +92,6 @@ export default function Gallery() {
   return (
     <section id="builds" className="hf-sec hf-sec--dark hf-gal" aria-labelledby="gal-title">
       <div className="hf-gal-head">
-        <p className="hf-label" data-reveal>
-          Field notebook
-        </p>
         <h2 id="gal-title" className="hf-display hf-gal-title" data-reveal>
           What building hardware looks like <span className="hf-accent">together</span>.
         </h2>
@@ -126,7 +109,7 @@ export default function Gallery() {
                 className="hf-cover"
               />
               <span className="hf-gal-tag">
-                {pad(i + 1)} — {p.label}
+                {pad(i + 1)} · {p.label}
               </span>
               <span className="hf-gal-inspect" aria-hidden="true">
                 <span className="hf-gal-cta-text">{p.href ? p.cta : "Inspect"} </span>
@@ -183,7 +166,7 @@ export default function Gallery() {
             </div>
             <div className="hf-lightbox-bar">
               <p className="hf-lightbox-count">
-                {pad(index + 1)} / {pad(VIEWABLE.length)} — {current.label}
+                {pad(index + 1)} / {pad(VIEWABLE.length)} · {current.label}
               </p>
               <p className="hf-lightbox-caption">
                 {current.caption}

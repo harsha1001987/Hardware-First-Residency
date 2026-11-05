@@ -1,187 +1,137 @@
-"use client";
-
 import Image from "next/image";
-import { useState } from "react";
+import { PARTNERS } from "@/config/site";
 
 /*
- * What you get — an asymmetric workbench: all six benefits are on screen at
- * once. Every tile shares one component: a top row (number + toggle mark),
- * the title and line that are always visible, and a reveal that fades up on
- * hover, keyboard focus, or a tap (touch screens). Tiles 01, 02 and 03
- * reveal their item lists as small bordered boxes.
+ * What you get: six benefit cards with everything visible at rest. Each card
+ * shows its number, title, a line, the items it covers as tags, and the
+ * logos of whoever provides it (each logo links to their site).
  */
 const TILES = [
   {
     key: "lab",
     title: "Lab infrastructure",
     boxes: ["3D printing", "Soldering", "SMD rework", "Laser cutting", "Prototyping bench"],
-    hint: "tools",
-    more: "Shared equipment, subject to availability.",
     image: {
       src: "/images/workbench.jpg",
       alt: "A workbench with a soldering station, helping hands with a magnifier, and a breadboard prototype.",
-      sizes: "(max-width: 767px) 100vw, (max-width: 1023px) 100vw, 42vw",
     },
-    partner: {
-      src: "/images/sillymonks.png",
-      alt: "SillyMonks — laser cutting and CAD services",
+    credit: {
       label: "Laser cutting by SillyCut",
+      logos: [{ name: "SillyCut", logo: "/images/sillymonks.png", href: "https://sillycuts.com" }],
     },
   },
   {
     key: "pcb",
     title: "PCB & design support",
-    hint: "services",
     boxes: ["CAD", "Schematic review", "Electronics design", "PCB fabrication"],
     image: {
       src: "/images/pcb.png",
       alt: "Two green microcontroller PCBs on a dark desk with miniature astronaut figurine and potted plant.",
-      sizes: "(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 34vw",
     },
-    partner: {
-      src: "/images/lion.png",
-      alt: "LionCircuits — PCB fabrication partner",
+    credit: {
       label: "PCB fabrication by LionCircuits",
+      logos: [{ name: "LionCircuits", logo: "/images/lion.png", href: "https://lioncircuits.com" }],
     },
   },
   {
     key: "fw",
     title: "Firmware & engineering",
-    hint: "services",
-    boxes: ["Programming", "Firmware debugging", "Dev tools", "Credits*"],
-    more: "*Credits where available.",
+    boxes: ["Programming", "Firmware debugging", "Dev tools", "Credits"],
+    image: {
+      src: "/images/hero.jpeg",
+      alt: "A green microcontroller board with USB-C connector and pin headers on a dark surface.",
+    },
   },
   {
     key: "days",
     title: "Six days of focused building",
-    text: "Build alongside five other selected builders.",
+    text: "Build alongside seven other selected builders.",
     more: "1–6 November 2026, Hyderabad.",
-    days: true,
     image: {
       src: "/images/community-demo.jpg",
       alt: "Builders at a table with a servo-driven arm prototype, laptops open.",
-      sizes: "(max-width: 767px) 100vw, 22vw",
     },
   },
   {
     key: "ind",
     title: "Industry & mentors",
     text: "Engineers, specialists and ecosystem partners.",
-    more: "Via PCB Cupid × Projects by Laksh.",
+    credit: { label: "PCB Cupid × Projects by Laksh", logos: [PARTNERS.pcbCupid, PARTNERS.laksh] },
+    image: {
+      src: "/images/3.jpg.jpeg",
+      alt: "Two builders working together on a wearable prototype wired with jumper leads.",
+    },
   },
   {
     key: "stay",
     title: "Stay & food covered",
     text: "Living, meals and workspace on site.",
-    more: "Hosted by The Founding Co.",
+    credit: { label: "Hosted by The Founding Co.", logos: [PARTNERS.foundingCo] },
+    image: {
+      src: "/images/community-group.jpg",
+      alt: "A large group of builders together at a past community hardware event.",
+    },
   },
 ];
 
 const pad = (n) => String(n).padStart(2, "0");
 
-function Tile({ tile, n, open, onToggle }) {
-  const { key, title, text, more, boxes, hint, days, image, partner } = tile;
+function Card({ tile, n }) {
+  const { key, title, text, more, boxes, image, credit } = tile;
   return (
-    <article
-      className={`hf-tile hf-tile--${key}`}
-      tabIndex={0}
-      aria-label={`${pad(n)} — ${title}`}
-      data-open={open || undefined}
-      data-reveal
-      style={{ "--d": `${(n - 1) * 60}ms` }}
-      onClick={onToggle}
-      onKeyDown={(e) => {
-        if (e.target === e.currentTarget && (e.key === "Enter" || e.key === " ")) {
-          e.preventDefault();
-          onToggle();
-        }
-      }}
-    >
+    <li className={`hf-kit-card hf-kit-card--${key}`} data-reveal style={{ "--d": `${(n - 1) * 60}ms` }}>
       {image && (
-        <div className={`hf-tile-media${key === "days" ? " hf-tile-media--side" : ""}`}>
-          <Image src={image.src} alt={image.alt} fill sizes={image.sizes} className="hf-cover" />
+        <div className="hf-kit-media">
+          <Image src={image.src} alt={image.alt} fill sizes="(max-width: 767px) 100vw, 33vw" className="hf-cover" />
         </div>
       )}
-
-      <div className="hf-tile-body">
-        <div className="hf-tile-top">
-          <span className="hf-tile-num">{pad(n)}</span>
-          <span className="hf-tile-mark" aria-hidden="true" />
-        </div>
-
-        <h3 className="hf-tile-name">{title}</h3>
-        {text && <p className="hf-tile-text">{text}</p>}
-        {days && (
-          <ol className="hf-tile-days" aria-label="1 to 6 November 2026">
-            {[1, 2, 3, 4, 5, 6].map((d) => (
-              <li key={d} style={{ "--i": d }} />
-            ))}
-          </ol>
-        )}
+      <div className="hf-kit-body">
+        <span className="hf-kit-num">{pad(n)}</span>
+        <h3 className="hf-kit-name">{title}</h3>
+        {text && <p className="hf-kit-text">{text}</p>}
         {boxes && (
-          <p className="hf-tile-hint" aria-hidden="true">
-            + {boxes.length} {hint}
-          </p>
+          <ul className="hf-kit-tags" aria-label={`${title} covers`}>
+            {boxes.map((b) => (
+              <li key={b}>{b}</li>
+            ))}
+          </ul>
         )}
-
-        <div className="hf-tile-reveal">
-          <div>
-            {boxes && (
-              <ul className="hf-tile-boxes" aria-label={`${title} covers`}>
-                {boxes.map((b, i) => (
-                  <li key={b} style={{ "--i": i }}>
-                    <span>{b}</span>
-                  </li>
-                ))}
-              </ul>
-            )}
-            {more && <p className="hf-tile-more">{more}</p>}
-          </div>
-        </div>
-        {partner && (
-          <div className="hf-tile-partner">
-            <Image
-              src={partner.src}
-              alt={partner.alt}
-              width={80}
-              height={32}
-              className="hf-tile-partner-logo"
-            />
-            <span className="hf-tile-partner-label">{partner.label}</span>
+        {more && <p className="hf-kit-more">{more}</p>}
+        {credit && (
+          <div className="hf-kit-partner">
+            {credit.logos.map((org) => (
+              <a
+                key={org.name}
+                href={org.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${org.name} (opens in a new tab)`}
+              >
+                <Image src={org.logo} alt="" width={80} height={32} />
+              </a>
+            ))}
+            <span>{credit.label}</span>
           </div>
         )}
       </div>
-    </article>
+    </li>
   );
 }
 
 export default function Toolkit() {
-  const [open, setOpen] = useState(null);
-
   return (
     <section id="what-you-get" className="hf-sec hf-sec--mineral hf-kit" aria-labelledby="kit-title">
       <div className="hf-kit-head" data-reveal>
-        <p className="hf-label">What you get</p>
         <h2 id="kit-title" className="hf-display hf-kit-title">
-          The tools. The people. The space.
+          The tools. The people. <span className="hf-outline">The space.</span>
         </h2>
       </div>
 
-      <div className="hf-bench">
+      <ul className="hf-kit-grid">
         {TILES.map((t, i) => (
-          <Tile
-            key={t.key}
-            tile={t}
-            n={i + 1}
-            open={open === t.key}
-            onToggle={() => setOpen((o) => (o === t.key ? null : t.key))}
-          />
+          <Card key={t.key} tile={t} n={i + 1} />
         ))}
-      </div>
-
-      <p className="hf-kit-note">
-        <strong>Note</strong> Components, fabrication, resources and credits depend on availability.
-      </p>
+      </ul>
     </section>
   );
 }

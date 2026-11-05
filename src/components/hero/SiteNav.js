@@ -2,10 +2,10 @@
 
 import { useEffect, useId, useState } from "react";
 import Image from "next/image";
-import { APPLY_URL, NAV_LINKS, PARTNERS } from "@/config/site";
+import { DEMO_DAY_URL, NAV_LINKS, PARTNERS } from "@/config/site";
 import "./SiteNav.css";
 
-// "Hosted by" with both organisers' logos (shown in the bar and in the menu).
+// "Hosted by" with both organisers' logos, shown in the menu panel.
 function HostedBy({ className }) {
   return (
     <p className={`hf-nav-hosted ${className}`}>
@@ -43,12 +43,14 @@ export default function SiteNav() {
     return () => io.disconnect();
   }, []);
 
-  // Transparent over the hero; gains a solid midnight surface once the hero
-  // has scrolled away so the links stay legible over light sections.
+  // Ink on yellow over the hero; gains a solid midnight surface before the
+  // hero's black brief band reaches it, so the links always stay legible.
   useEffect(() => {
     const hero = document.getElementById("top");
     const onScroll = () => {
-      const limit = hero ? hero.offsetHeight - 80 : 80;
+      // Turn solid once the hero's black brief band reaches the bar.
+      const brief = hero?.querySelector(".hf-brief");
+      const limit = hero ? hero.offsetHeight - (brief?.offsetHeight ?? 0) - 80 : 80;
       setSolid(window.scrollY > limit);
     };
     onScroll();
@@ -74,6 +76,9 @@ export default function SiteNav() {
     <header className="hf-nav" data-solid={solid || open || undefined}>
       <nav className="hf-nav-bar" aria-label="Primary">
         <a href="#top" className="hf-nav-brand" onClick={close}>
+          <span className="hf-nav-mark" aria-hidden="true">
+            H<span>F</span>
+          </span>
           <span className="hf-nav-wordmark">
             Hardware <span className="hf-first">First</span>
           </span>
@@ -95,9 +100,8 @@ export default function SiteNav() {
         </ul>
 
         <div className="hf-nav-actions">
-          <HostedBy className="hf-nav-hosted--bar" />
-          <a href={APPLY_URL} className="hf-nav-apply">
-            <span className="hf-nav-apply-long">Apply for residency</span>
+          <a href={DEMO_DAY_URL} className="hf-nav-apply">
+            <span className="hf-nav-apply-long">Apply for demo day</span>
             <span className="hf-nav-apply-short">Apply</span>
             <span className="hf-arrow" aria-hidden="true">
               ↗

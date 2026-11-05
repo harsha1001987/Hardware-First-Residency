@@ -87,7 +87,7 @@ body {
    contours stay hidden under it (paint-order draws the stroke first). */
 .hf-outline {
   /* Looser than solid display type so neighbouring outlines never cross. */
-  letter-spacing: -0.012em;
+  letter-spacing: 0;
   color: var(--outline-fill, var(--yellow));
   -webkit-text-stroke: var(--outline-w, 0.05em) var(--outline-ink, var(--ink));
   paint-order: stroke fill;

@@ -10,9 +10,9 @@ const montserrat = Montserrat({
 });
 
 export const metadata = {
-  title: "Hardware First Residency — Hyderabad, 1–6 November 2026",
+  title: "Hardware First Residency | Hyderabad, 1–6 November 2026",
   description:
-    "Bring your build. Let's take it further. Six selected builders, six focused days of building hardware in Hyderabad with mentors, engineers and infrastructure.",
+    "Bring your build. Let's take it further. Eight selected builders, six focused days of building hardware in Hyderabad with mentors, engineers and infrastructure.",
 };
 
 export default function RootLayout({ children }) {

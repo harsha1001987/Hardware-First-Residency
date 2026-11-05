@@ -5,7 +5,7 @@ import { useId, useState } from "react";
 const FAQS = [
   ["What are the dates?", "1–6 November 2026."],
   ["Where is it?", "Hyderabad, India, at The Founding Co."],
-  ["How many builders are selected?", "Six."],
+  ["How many builders are selected?", "Eight."],
   [
     "Who should apply?",
     "Hardware builders who already have a working model and need engineering, fabrication, mentorship, or industry support to take it closer to a real product.",

@@ -1,26 +1,26 @@
 import Image from "next/image";
-import { APPLY_URL, COMPANY, PARTNERS } from "@/config/site";
+import { DEMO_DAY_URL, COMPANY, PARTNERS } from "@/config/site";
 import { ICONS, LAKSH_LINKS, PCB_CUPID_LINKS } from "@/components/SocialIcons";
 
 const DETAILS = [
   ["Residency", "01–06 November 2026"],
   ["Location", "Hyderabad, India"],
   ["Application deadline", "24 October 2026"],
-  ["Selection", "Six selected builders"],
+  ["Selection", "Eight selected builders"],
 ];
 
-// The final call: a black poster card on the yellow grid — headline, button, facts.
+// The final call: a black poster card on the yellow grid: headline, button, facts.
 export function Apply() {
   return (
     <section id="apply" className="hf-sec hf-apply" aria-labelledby="apply-title">
       <div className="hf-apply-card" data-reveal>
         <h2 id="apply-title" className="hf-display hf-apply-title">
-          <span className="hf-apply-line">Your build deserves</span>{" "}
-          <span className="hf-apply-line hf-accent-outline">six focused days.</span>
+          <span className="hf-apply-line">Applications</span>{" "}
+          <span className="hf-apply-line hf-accent-outline">closed.</span>
         </h2>
 
-        <a href={APPLY_URL} className="hf-apply-cta">
-          Apply for residency
+        <a href={DEMO_DAY_URL} className="hf-apply-cta">
+          Apply for demo day
           <span className="hf-arrow" aria-hidden="true">
             ↗
           </span>
@@ -78,7 +78,6 @@ export function SiteFooter() {
             <Image src={PARTNERS.laksh.logo} alt="" width={PARTNERS.laksh.w} height={PARTNERS.laksh.h} />
             Projects by Laksh
           </p>
-          <p className="hf-foot-venue">Venue partner — The Founding Co.</p>
         </div>
 
         {/* PCB Cupid and its contact details: one left-aligned column. */}
@@ -118,11 +117,6 @@ export function SiteFooter() {
         </span>{" "}
         for hardware
       </p>
-
-      <div className="hf-foot-bottom">
-        <p className="hf-foot-love">For the love of hardware.</p>
-        
-      </div>
     </footer>
   );
 }

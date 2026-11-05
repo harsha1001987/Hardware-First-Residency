@@ -4,7 +4,7 @@ const WORDS = [
   "Hardware First Residency",
   "01–06 November 2026",
   "Hyderabad",
-  "Six builders",
+  "Eight builders",
   "Six focused days",
   "Bring your project",
 ];

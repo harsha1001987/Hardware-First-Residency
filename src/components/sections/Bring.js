@@ -14,7 +14,7 @@ const ITEMS = [
   },
   {
     title: "Your curiosity",
-    text: "Experiment, troubleshoot, and help fellow builders. Six people share one workspace.",
+    text: "Experiment, troubleshoot, and help fellow builders. Eight people share one workspace.",
   },
   {
     title: " security deposit",
@@ -30,7 +30,6 @@ export default function Bring() {
   return (
     <section id="what-to-bring" className="hf-sec hf-sec--dark hf-inv" aria-labelledby="inv-title">
       <div className="hf-inv-head" data-reveal>
-        <p className="hf-label">What to bring</p>
         <h2 id="inv-title" className="hf-display hf-inv-title">
           What we expect <span className="hf-accent">from you</span>
         </h2>

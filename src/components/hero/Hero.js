@@ -1,15 +1,17 @@
 import Image from "next/image";
-import { APPLY_URL } from "@/config/site";
+import { PARTNERS } from "@/config/site";
 import HeroBrief from "./HeroBrief";
 import HeroPointer from "./HeroPointer";
 import "./Hero.css";
 
-// A one-line window that rolls 01–06 and lands on the word (see Hero.css).
-// The digits are generated content, so text and screen readers only get "Six".
-function Six({ delay }) {
+// A one-line window that rolls 01 up to `to` and lands on the word (see Hero.css).
+// The digits are generated content, so text and screen readers only get the word.
+function Count({ word, to, delay }) {
   return (
-    <span className="hf-six" style={{ "--six-d": delay }}>
-      <span className="hf-six-reel">Six</span>
+    <span className="hf-count" style={{ "--count-d": delay, "--to": to }}>
+      <span className="hf-count-reel" data-to={to}>
+        {word}
+      </span>
     </span>
   );
 }
@@ -20,35 +22,45 @@ export default function Hero() {
   return (
     <section id="top" className="hf-hero hf-gridded" aria-labelledby="hero-title">
       <div className="hf-hero-main">
-        <p className="hf-hero-label hf-reveal" style={{ "--d": "0ms" }}>
-          In-person hardware residency
-        </p>
+        {/* The poster's top line: hosts and venue, each linking to their site. */}
+        <div className="hf-hero-hosts hf-reveal" style={{ "--d": "0ms" }}>
+          {[PARTNERS.pcbCupid, PARTNERS.laksh, PARTNERS.foundingCo].map((p, i) => (
+            <span key={p.name} className="hf-hero-host">
+              {i > 0 && (
+                <span className="hf-hero-x" aria-hidden="true">
+                  ×
+                </span>
+              )}
+              <a href={p.href} target="_blank" rel="noopener noreferrer" aria-label={`${p.name} (opens in a new tab)`}>
+                <Image src={p.logo} alt="" width={p.w} height={p.h} />
+                {p === PARTNERS.foundingCo && <span className="hf-hero-host-name">{p.name}</span>}
+              </a>
+            </span>
+          ))}
+          <span className="hf-hero-label">In-person hardware residency</span>
+        </div>
 
         <h1 id="hero-title" className="hf-hero-title">
           <span className="hf-hero-line hf-reveal" style={{ "--d": "80ms" }}>
-            Bring your
+            Hardware
           </span>{" "}
-          <span className="hf-hero-line hf-outline hf-reveal" style={{ "--d": "170ms" }}>
-            project.
+          <span className="hf-hero-line hf-reveal" style={{ "--d": "170ms" }}>
+            <span className="hf-outline">First</span> <span className="hf-hero-tag">Residency</span>
           </span>{" "}
           <span className="hf-hero-sub hf-reveal" style={{ "--d": "270ms" }}>
-            Let&rsquo;s take it closer to a product.
+            Bring your project. Let&rsquo;s take it closer to a product.
           </span>
         </h1>
 
         <p className="hf-hero-desc hf-reveal" style={{ "--d": "370ms" }}>
-          <Six delay="760ms" /> hardware builders. <Six delay="980ms" /> focused days.
+          <Count word="Eight" to={8} delay="760ms" /> hardware builders. <Count word="Six" to={6} delay="980ms" />{" "}
+          focused days.
         </p>
 
         <div className="hf-hero-actions hf-reveal" style={{ "--d": "450ms" }}>
-          <a href={APPLY_URL} className="hf-hero-cta">
-            Apply for residency
-            <span className="hf-arrow" aria-hidden="true">
-              ↗
-            </span>
-          </a>
-          <a href="#experience" className="hf-hero-explore">
-            Explore the experience
+          <p className="hf-hero-cta hf-hero-cta--closed">Applications closed</p>
+          <a href="#what-you-get" className="hf-hero-explore">
+            See what you get
             <span className="hf-arrow-down" aria-hidden="true">
               ↓
             </span>
@@ -67,10 +79,6 @@ export default function Hero() {
           fetchPriority="high"
           className="hf-hero-photo"
         />
-        <figcaption className="hf-hero-fig">
-          <span>Fig. 01 Handoff, robot to human</span>
-          <span>5 joints / 2 fingers / 1 hand</span>
-        </figcaption>
       </figure>
 
       <HeroBrief />

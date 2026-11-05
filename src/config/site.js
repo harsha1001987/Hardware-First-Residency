@@ -1,8 +1,7 @@
 // Central place for links and facts the page depends on.
 
-// Every "Apply for residency" button starts the application here (same tab).
-export const APPLY_URL =
-  "https://auth.pcbcupid.com/auth/initiate?d=MTB8DiRLpohV4_x9iV3SU3y9EeN3jfGMM_uMhGWm_4Jz2bslxoHOCP0lFoGhOOiJXgM0V5LeRee0p3g9nJkShb0W6RuHB8Nhag_XjTMyZ8KVhyA_CxxT8-Wt3SONd1zLLkoR9hKOVyGVBFPkyERbVX8eO79DWMJuKxyGbphJNxV9UVhiPBPBGNU";
+// Every "Apply for demo day" button opens the Demo Day page on Luma (same tab).
+export const DEMO_DAY_URL = "https://luma.com/i2cnnj7s?tk=DjWTFs";
 
 // Company details shown in the footer.
 export const COMPANY = {
@@ -13,29 +12,30 @@ export const COMPANY = {
 };
 
 export const NAV_LINKS = [
-  { href: "#experience", label: "The experience" },
   { href: "#what-you-get", label: "What you get" },
+  { href: "#mentors", label: "Mentors" },
   { href: "#what-to-bring", label: "What to bring" },
   { href: "#builds", label: "The builds" },
   { href: "#faqs", label: "FAQs" },
 ];
 
 export const PARTNERS = {
-  pcbCupid: { name: "PCB Cupid", logo: "/logos/pcb-cupid.png", w: 170, h: 164 },
-  laksh: { name: "Projects by Laksh", logo: "/logos/projects-by-laksh.png", w: 177, h: 177 },
-  foundingCo: { name: "The Founding Co.", logo: "/logos/the-founding-co.png", w: 150, h: 150 },
+  pcbCupid: { name: "PCB Cupid", logo: "/logos/pcb-cupid.png", w: 170, h: 164, href: "https://pcbcupid.com" },
+  laksh: { name: "Projects by Laksh", logo: "/logos/projects-by-laksh.png", w: 177, h: 177, href: "https://lakshveer.com" },
+  foundingCo: { name: "The Founding Co.", logo: "/logos/the-founding-co.png", w: 150, h: 150, href: "https://thefounding.co" },
 };
 
-// Sponsors strip above "Who's doing it". Add an entry to show another logo.
-// Optional `href` makes a slot a link — only add real URLs.
+// Credits band in "Who's doing it". Add an entry to show another logo.
+// `mono` is the white version used on the black band.
+// Optional `href` makes a slot a link; only add real URLs.
 export const SUPPORTERS = [
-  { name: "Malpani Ventures", logo: "/logos/malpani-ventures.png", w: 147, h: 44 },
-  { name: "T-Works", logo: "/logos/t-works.jpg", w: 910, h: 909 },
+  { name: "Malpani Ventures", logo: "/logos/malpani-ventures.png", mono: "/logos/mono/malpani.png", w: 147, h: 44, href: "https://malpaniventures.com" },
+  { name: "T-Works", logo: "/logos/t-works.jpg", mono: "/logos/mono/tworks.png", w: 910, h: 909, href: "https://t-works.in" },
 ];
 
 export const SPONSOR_PARTNERS = [
-  { name: "SillyCuts", logo: "/logos/sillycuts.png", w: 479, h: 240 },
-  { name: "LionCircuits", logo: "/logos/lioncircuits.png", w: 519, h: 272 },
-  { name: "Launchd", logo: "/logos/launchd.png", w: 117, h: 240 },
+  { name: "SillyCuts", logo: "/logos/sillycuts.png", mono: "/logos/mono/sillycuts.png", w: 479, h: 240, href: "https://sillycuts.com" },
+  { name: "LionCircuits", logo: "/logos/lioncircuits.png", mono: "/logos/mono/lion.png", w: 519, h: 272, href: "https://lioncircuits.com" },
+  { name: "Launchd", logo: "/logos/launchd.png", mono: "/logos/mono/launchd.png", w: 117, h: 240, wordmark: true, href: "https://thelaunchd.com" },
 ];
 

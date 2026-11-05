@@ -67,30 +67,54 @@
 
 /* Brand lockup */
 
+/* Brand: the HF tile from the poster, then the name on two lines. */
 .hf-nav-brand {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  column-gap: 0.7rem;
+  row-gap: 0.15rem;
+  align-items: center;
   color: inherit;
   text-decoration: none;
   line-height: 1;
 }
 
-.hf-nav-wordmark {
-  font-family: var(--font-montserrat), sans-serif;
-  font-size: 1.125rem;
+.hf-nav-mark {
+  grid-row: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.25rem;
+  height: 2.5rem;
+  white-space: nowrap;
+  border-radius: 7px;
+  background: var(--midnight);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.16);
+  color: var(--white);
+  font-size: 1.05rem;
   font-weight: 900;
-  letter-spacing: -0.02em;
-  word-spacing: 0.06em;
-  text-transform: uppercase;
+  letter-spacing: 0;
+}
+
+.hf-nav-mark span {
+  color: var(--yellow);
+}
+
+.hf-nav-wordmark {
+  align-self: end;
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 1.0625rem;
+  font-weight: 800;
+  letter-spacing: 0;
   white-space: nowrap;
 }
 
 .hf-nav-descriptor {
-  font-size: 0.625rem;
-  font-weight: 600;
-  letter-spacing: 0.34em;
-  text-transform: uppercase;
+  align-self: start;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
   color: var(--white-muted);
 }
 
@@ -108,10 +132,9 @@
   position: relative;
   display: inline-block;
   padding-block: 0.5rem;
-  font-size: 0.6875rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
   color: rgb(255 255 255 / 0.72);
   text-decoration: none;
   white-space: nowrap;
@@ -153,13 +176,13 @@
   align-items: center;
   gap: 0.6rem;
   height: 2.75rem;
-  padding-inline: 1.1rem;
-  border: 1px solid rgb(255 255 255 / 0.85);
-  border-radius: 1px;
-  font-size: 0.6875rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
+  padding-inline: 1.2rem;
+  border: 1px solid var(--yellow);
+  border-radius: 6px;
+  background: var(--yellow);
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
   color: var(--white);
   text-decoration: none;
   white-space: nowrap;
@@ -205,8 +228,7 @@
   margin: 0;
   font-size: 0.5625rem;
   font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
+  letter-spacing: 0.03em;
   white-space: nowrap;
   color: var(--white-muted);
 }
@@ -220,12 +242,6 @@
 
 .hf-nav-hosted-label {
   margin-right: 0.15rem;
-}
-
-.hf-nav-hosted--bar {
-  flex: none;
-  padding-right: 1rem;
-  border-right: 1px solid var(--rule-light);
 }
 
 .hf-nav-hosted--panel {
@@ -256,8 +272,7 @@
     font: inherit;
     font-size: 0.6875rem;
     font-weight: 600;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
+    letter-spacing: 0.03em;
     color: var(--white);
     cursor: pointer;
   }
@@ -282,9 +297,8 @@
     font-family: var(--font-montserrat), sans-serif;
     font-size: 1.75rem;
     font-weight: 600;
-    letter-spacing: -0.01em;
+    letter-spacing: 0;
     word-spacing: 0.1em;
-    text-transform: uppercase;
     color: var(--white);
     text-decoration: none;
   }
@@ -318,7 +332,7 @@
   }
 
   .hf-nav-descriptor {
-    letter-spacing: 0.26em;
+    letter-spacing: 0.03em;
   }
 
   .hf-nav-actions {
@@ -327,26 +341,16 @@
 
   .hf-nav-apply {
     padding-inline: 0.65rem;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.03em;
   }
 
   .hf-nav-toggle {
-    letter-spacing: 0.12em;
+    letter-spacing: 0.03em;
   }
 }
 
-/* Tight desktop widths: logos only. Phones: logos move into the menu. */
-@media (max-width: 1379.98px) and (min-width: 1200px) {
-  .hf-nav-hosted--bar .hf-nav-hosted-label {
-    display: none;
-  }
-}
-
-@media (max-width: 599.98px) {
-  .hf-nav-hosted--bar {
-    display: none;
-  }
-
+/* The organisers' logos live in the menu panel. */
+@media (max-width: 1199.98px) {
   .hf-nav-panel .hf-nav-hosted--panel {
     display: flex;
     padding: 1rem 0 0.25rem;
