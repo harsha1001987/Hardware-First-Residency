@@ -1,16 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --mineral: #e3e2de;
-  --midnight: #050505;
+  --mineral: #f4f2ee;
+  --midnight: #0c0c0a;
   --footer-black: #0a0a0a;
-  --ink: #1b0e0d;
+  --ink: #0c0c0a;
   --white: #ffffff;
-  /* Industrial yellow: the one accent. On light surfaces it is paired with ink. */
-  --yellow: #f5d547;
-  --yellow-rgb: 245 213 71;
+  /* Poster yellow (the "F" on the HF tile): the one accent. On light surfaces it is paired with ink. */
+  --yellow: #ffdd1f;
+  --yellow-rgb: 255 221 31;
   --white-muted: rgb(255 255 255 / 0.4);
-  --rule-dark: rgb(27 14 13 / 0.18);
+  --rule-dark: rgb(12 12 10 / 0.18);
   --rule-light: rgb(255 255 255 / 0.12);
 
   --pad: clamp(24px, 5vw, 80px);
@@ -27,8 +27,8 @@
   --color-ink: var(--ink);
   --color-yellow: var(--yellow);
   --color-rule: var(--rule-dark);
-  --font-display: var(--font-clash);
-  --font-sans: var(--font-general);
+  --font-display: var(--font-montserrat);
+  --font-sans: var(--font-montserrat);
 }
 
 html {
@@ -44,7 +44,7 @@ html {
 body {
   background: var(--mineral);
   color: var(--ink);
-  font-family: var(--font-general), "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--font-montserrat), "Helvetica Neue", Arial, sans-serif;
   overflow-x: clip;
 }
 
@@ -64,9 +64,35 @@ body {
   color: var(--yellow);
 }
 
-/* "Residency" in the brand name: italic (synthesised; the fonts ship no italic),
+/* "Residency" in the brand name: Montserrat's true italic,
    with a hair of room so the slanted last letter is never clipped. */
 .hf-res {
   font-style: italic;
   padding-right: 0.08em;
+}
+
+/* ---------- Poster language ----------
+   Shared with the Demo Day poster: an engineering grid on flat surfaces,
+   outlined display words, and black-and-yellow hazard stripes. */
+
+.hf-gridded {
+  background-image:
+    linear-gradient(rgb(12 12 10 / 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(12 12 10 / 0.07) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: -1px -1px;
+}
+
+/* An outlined word: the fill matches the surface, so overlapping glyph
+   contours stay hidden under it (paint-order draws the stroke first). */
+.hf-outline {
+  /* Looser than solid display type so neighbouring outlines never cross. */
+  letter-spacing: -0.012em;
+  color: var(--outline-fill, var(--yellow));
+  -webkit-text-stroke: var(--outline-w, 0.05em) var(--outline-ink, var(--ink));
+  paint-order: stroke fill;
+}
+
+.hf-hazard {
+  background: repeating-linear-gradient(-45deg, var(--yellow) 0 14px, var(--midnight) 14px 28px);
 }

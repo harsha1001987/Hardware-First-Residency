@@ -18,8 +18,7 @@ export default function Support() {
           to hear from you.
         </p>
         <a href={`tel:${COMPANY.phone.replace(/\s/g, "")}`} className="hf-apply-cta">
-          <span className="hf-apply-cta-sheen" aria-hidden="true" />
-          <span className="hf-apply-cta-label">Partner with Hardware First</span>
+          Partner with Hardware First
           <span className="hf-arrow" aria-hidden="true">
             ↗
           </span>

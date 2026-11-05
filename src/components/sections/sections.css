@@ -25,7 +25,12 @@
 }
 
 .hf-sec--mineral {
-  background: var(--mineral);
+  background-color: var(--mineral);
+  background-image:
+    linear-gradient(rgb(12 12 10 / 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(12 12 10 / 0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: -1px -1px;
   color: var(--ink);
   --rule: var(--rule-dark);
   --muted: rgb(27 14 13 / 0.6);
@@ -39,7 +44,7 @@
   gap: 0.7rem;
   margin: 0;
   font-size: 0.6875rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--muted);
@@ -58,18 +63,25 @@
 
 .hf-display {
   margin: 0;
-  font-family: var(--font-clash), "Arial Narrow", sans-serif;
-  font-weight: 700;
+  font-family: var(--font-montserrat), sans-serif;
+  font-weight: 900;
   line-height: 0.9;
-  letter-spacing: -0.035em;
-  word-spacing: 0.1em;
-  text-transform: uppercase;
+  letter-spacing: -0.05em;
   text-wrap: balance;
 }
 
 /* Accent text on dark surfaces. */
 .hf-accent {
   color: var(--yellow);
+}
+
+/* Outlined accent on dark surfaces: a yellow stroke around the surface colour. */
+.hf-accent-outline {
+  /* Looser than solid display type so neighbouring outlines never cross. */
+  letter-spacing: -0.012em;
+  color: var(--midnight);
+  -webkit-text-stroke: 0.045em var(--yellow);
+  paint-order: stroke fill;
 }
 
 .hf-zoom {
@@ -193,12 +205,14 @@
 }
 
 .hf-xp-num {
-  font-family: var(--font-clash), sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
   font-size: clamp(6.5rem, 13vw, 14rem);
-  font-weight: 700;
+  font-weight: 900;
   line-height: 0.74;
-  letter-spacing: -0.05em;
-  color: var(--yellow);
+  letter-spacing: 0;
+  color: var(--midnight);
+  -webkit-text-stroke: 0.035em var(--yellow);
+  paint-order: stroke fill;
   animation: hf-swap 0.5s var(--ease-out);
 }
 
@@ -221,13 +235,11 @@
 
 .hf-xp-name {
   margin: 0.5rem 0 0;
-  font-family: var(--font-clash), sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
   font-size: clamp(1.75rem, 2.6vw, 2.5rem);
-  font-weight: 600;
+  font-weight: 900;
   line-height: 0.95;
-  letter-spacing: -0.02em;
-  word-spacing: 0.1em;
-  text-transform: uppercase;
+  letter-spacing: -0.03em;
 }
 
 .hf-xp-text {
@@ -310,7 +322,7 @@
 }
 
 .hf-xp-tab-num {
-  font-family: var(--font-clash), sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
   font-size: clamp(1.5rem, 2.4vw, 2.25rem);
   font-weight: 600;
   line-height: 1;
@@ -427,7 +439,7 @@
 .hf-tile-num {
   padding: 0.22rem 0.42rem 0.18rem;
   border: 1px solid currentColor;
-  font-family: var(--font-clash), sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
   line-height: 1;
@@ -472,7 +484,7 @@
 
 .hf-tile-name {
   margin: 0;
-  font-family: var(--font-clash), sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
   font-size: clamp(1.125rem, 1.5vw, 1.5rem);
   font-weight: 600;
   line-height: 1;
@@ -1067,7 +1079,7 @@ html:not(.hf-js) .hf-tile-days li {
 }
 
 .hf-inv-num {
-  font-family: var(--font-clash), sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
   font-size: clamp(1.5rem, 2.2vw, 2.125rem);
   font-weight: 700;
   line-height: 0.8;
@@ -1088,7 +1100,7 @@ html:not(.hf-js) .hf-tile-days li {
 }
 
 .hf-inv-name {
-  font-family: var(--font-clash), sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
   font-size: clamp(1.0625rem, 1.4vw, 1.375rem);
   font-weight: 600;
   line-height: 1.05;
@@ -1657,7 +1669,7 @@ html:not(.hf-js) .hf-tile-days li {
   display: block;
   width: fit-content;
   margin: 0.55rem 0 0;
-  font-family: var(--font-clash), sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
   font-size: clamp(1.5rem, 2.2vw, 2.125rem);
   font-weight: 700;
   line-height: 0.95;
@@ -1905,89 +1917,48 @@ html:not(.hf-js) .hf-tile-days li {
 }
 
 /* =========================================================
-   07 — Apply: the glass card
+   07 — Apply: a black card on the yellow poster grid
    ========================================================= */
 
 .hf-apply {
   --rule: var(--rule-light);
 
   padding-block: clamp(88px, 10vw, 168px);
-  /* Solid around the panel; the photograph lives only inside it. */
-  background: #050505;
+  background-color: var(--yellow);
+  background-image:
+    linear-gradient(rgb(12 12 10 / 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(12 12 10 / 0.07) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: -1px -1px;
   color: var(--white);
 }
 
-/* The panel: photograph, dark glass, grain and a fine edge, all clipped to it. */
 .hf-apply-card {
-  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.09'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-
   position: relative;
-  isolation: isolate;
   overflow: hidden;
   grid-column: 1 / -1;
   justify-self: center;
   width: min(100%, 1100px);
-  padding: clamp(36px, 5.5vw, 76px) clamp(20px, 5vw, 80px);
-  border: 1px solid rgb(255 255 255 / 0.16);
-  border-radius: 14px;
-  box-shadow:
-    inset 0 1px 0 rgb(255 255 255 / 0.2),
-    0 30px 80px -50px rgb(0 0 0 / 0.9);
+  padding: clamp(44px, 5.5vw, 80px) clamp(20px, 5vw, 80px) clamp(36px, 5vw, 68px);
+  border-radius: 10px;
+  background: var(--midnight);
+  box-shadow: 12px 12px 0 0 rgb(12 12 10 / 0.22);
   text-align: center;
 }
 
-.hf-apply-media {
-  position: absolute;
-  z-index: -2;
-  inset: 0;
-  overflow: hidden;
-}
-
-/* The glass: the photo is frosted (blurred, overscaled so its edges stay
-   solid), then tinted dark and grained. Everything is clipped to the panel. */
-.hf-apply-media .hf-cover {
-  object-position: 50% 45%;
-  filter: blur(14px) saturate(115%);
-  transform: scale(1.15);
-}
-
-.hf-apply-media::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    var(--grain) 0 0 / 180px 180px,
-    linear-gradient(160deg, rgb(255 255 255 / 0.06), rgb(5 5 5 / 0.18) 50%),
-    rgb(8 8 8 / 0.5);
-}
-
-/* A soft yellow-tinted highlight along the top edge of the glass. */
+/* Hazard stripes along the top edge, like the poster's base. */
 .hf-apply-card::before {
   content: "";
   position: absolute;
-  z-index: 1;
-  top: 0;
-  left: 14%;
-  right: 14%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgb(var(--yellow-rgb) / 0.65), transparent);
-}
-
-/* A faint fixed reflection across the glass. */
-.hf-apply-card::after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  background: linear-gradient(115deg, transparent 30%, rgb(255 255 255 / 0.05) 42%, transparent 54%);
-  pointer-events: none;
+  inset: 0 0 auto;
+  height: 10px;
+  background: repeating-linear-gradient(-45deg, var(--yellow) 0 14px, var(--midnight) 14px 28px);
 }
 
 /* Two deliberate lines, each kept whole; sized down to fit narrow screens. */
 .hf-apply-title {
-  font-size: clamp(1.4rem, 6vw, 4.25rem);
-  line-height: 0.95;
-  letter-spacing: -0.035em;
+  font-size: clamp(1.5rem, 6.4vw, 4.75rem);
+  line-height: 0.92;
 }
 
 .hf-apply-line {
@@ -1996,74 +1967,42 @@ html:not(.hf-js) .hf-tile-days li {
 }
 
 .hf-apply-line + .hf-apply-line {
-  margin-top: 0.08em;
+  margin-top: 0.06em;
 }
 
-/* Glass CTA centred under the heading: translucent, yellow edge, glow on hover/focus. */
+/* Solid yellow block with a hard offset shadow (used here and in "Get involved"). */
 .hf-apply-cta {
-  position: relative;
-  isolation: isolate;
   display: inline-flex;
   align-items: center;
   gap: 1.2rem;
   height: 4.1rem;
   margin-top: clamp(26px, 3.2vw, 40px);
   padding: 0 1.75rem 0 2.1rem;
-  overflow: hidden;
-  border: 1px solid rgb(var(--yellow-rgb) / 0.55);
-  border-radius: 4px;
-  background: linear-gradient(135deg, rgb(255 255 255 / 0.14), rgb(var(--yellow-rgb) / 0.1) 55%, rgb(255 255 255 / 0.06));
-  backdrop-filter: blur(10px) saturate(130%);
-  color: var(--white);
+  border-radius: 6px;
+  background: var(--yellow);
+  box-shadow: 5px 5px 0 0 rgb(255 255 255 / 0.18);
+  color: var(--ink);
   font-size: 0.875rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
+  font-weight: 800;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   text-decoration: none;
   white-space: nowrap;
-  text-shadow: 0 1px 2px rgb(0 0 0 / 0.35);
-  box-shadow:
-    inset 0 1px 0 rgb(255 255 255 / 0.3),
-    inset 0 -1px 0 rgb(0 0 0 / 0.3);
   transition:
-    transform 0.4s var(--ease-out),
-    border-color 0.3s ease,
-    background-color 0.3s ease,
-    box-shadow 0.4s ease;
-}
-
-.hf-apply-cta-sheen {
-  position: absolute;
-  z-index: -1;
-  inset: -20% -10%;
-  background: linear-gradient(
-    100deg,
-    transparent 34%,
-    rgb(255 255 255 / 0.06) 42%,
-    rgb(255 255 255 / 0.22) 48%,
-    rgb(255 255 255 / 0.05) 54%,
-    transparent 62%
-  );
-  transform: translateX(-80%);
-  opacity: 0;
-  pointer-events: none;
+    transform 0.25s var(--ease-out),
+    box-shadow 0.25s var(--ease-out);
 }
 
 .hf-apply-cta .hf-arrow {
   display: inline-block;
-  color: var(--yellow);
   font-size: 1.1rem;
   transition: transform 0.35s var(--ease-out);
 }
 
 .hf-apply-cta:hover,
 .hf-apply-cta:focus-visible {
-  transform: translateY(-2px);
-  border-color: var(--yellow);
-  background-color: rgb(var(--yellow-rgb) / 0.12);
-  box-shadow:
-    inset 0 1px 0 rgb(255 255 255 / 0.28),
-    0 14px 32px -20px rgb(var(--yellow-rgb) / 0.7);
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0 0 rgb(255 255 255 / 0.24);
 }
 
 .hf-apply-cta:hover .hf-arrow,
@@ -2074,27 +2013,6 @@ html:not(.hf-js) .hf-tile-days li {
 .hf-apply-cta:focus-visible {
   outline-color: var(--white);
   outline-offset: 4px;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .hf-apply-cta:hover .hf-apply-cta-sheen,
-  .hf-apply-cta:focus-visible .hf-apply-cta-sheen {
-    animation: hf-apply-sheen 0.95s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  }
-}
-
-@keyframes hf-apply-sheen {
-  0% {
-    transform: translateX(-80%);
-    opacity: 0;
-  }
-  15% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(80%);
-    opacity: 0.25;
-  }
 }
 
 /* Facts: two columns under the button (left: when/where, right: deadline/selection). */
@@ -2123,7 +2041,6 @@ html:not(.hf-js) .hf-tile-days li {
   height: 6px;
   translate: 0 -0.1em;
   background: var(--yellow);
-  box-shadow: 0 0 10px rgb(var(--yellow-rgb) / 0.45);
 }
 
 .hf-apply-details dt {
@@ -2143,12 +2060,6 @@ html:not(.hf-js) .hf-tile-days li {
   text-transform: uppercase;
 }
 
-@supports not (backdrop-filter: blur(1px)) {
-  .hf-apply-card {
-    background: rgb(14 14 12 / 0.92);
-  }
-}
-
 /* =========================================================
    Footer
    ========================================================= */
@@ -2160,6 +2071,15 @@ html:not(.hf-js) .hf-tile-days li {
   background: var(--footer-black);
   color: var(--white);
   border-top: 1px solid var(--rule-light);
+}
+
+/* The poster's hazard stripes close the page. */
+.hf-foot::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 10px;
+  background: repeating-linear-gradient(-45deg, var(--yellow) 0 14px, var(--footer-black) 14px 28px);
 }
 
 .hf-foot-top {
@@ -2178,7 +2098,7 @@ html:not(.hf-js) .hf-tile-days li {
 
 .hf-foot-word {
   margin: 0;
-  font-family: var(--font-clash), sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
   font-size: clamp(1.5rem, 2.4vw, 2.25rem);
   font-weight: 700;
   line-height: 0.95;
@@ -2329,18 +2249,19 @@ html:not(.hf-js) .hf-tile-days li {
 
 .hf-foot-ghost {
   margin: clamp(48px, 6vw, 80px) 0 clamp(20px, 2.4vw, 32px);
-  font-family: var(--font-clash), sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
   font-size: clamp(1.75rem, 6.2vw, 7rem);
-  font-weight: 700;
+  font-weight: 900;
   line-height: 0.95;
-  letter-spacing: -0.04em;
-  word-spacing: 0.1em;
-  text-transform: uppercase;
+  letter-spacing: -0.012em;
   text-wrap: balance;
-  color: rgb(255 255 255 / 0.16);
+  color: var(--footer-black);
+  -webkit-text-stroke: 0.03em rgb(255 255 255 / 0.3);
+  paint-order: stroke fill;
 }
 
 .hf-foot-ghost .hf-heart {
+  -webkit-text-stroke: 0;
   font-size: 0.62em;
   vertical-align: 0.12em;
 }
@@ -2717,5 +2638,93 @@ html:not(.hf-js) .hf-tile-days li {
     padding: 0 1.1rem 0 1.25rem;
     font-size: 0.75rem;
     letter-spacing: 0.12em;
+  }
+}
+
+/* =========================================================
+   Hazard tape — straddles the seam between two sections
+   ========================================================= */
+
+.hf-tape {
+  position: relative;
+  z-index: 6;
+  height: 0;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.hf-tape-band {
+  position: absolute;
+  left: -3vw;
+  right: -3vw;
+  top: -24px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: var(--midnight);
+  color: var(--yellow);
+  border-block: 2px solid var(--yellow);
+  box-shadow: 0 10px 28px rgb(0 0 0 / 0.28);
+  transform: rotate(var(--tilt, -1.6deg));
+}
+
+.hf-tape[data-tone="yellow"] .hf-tape-band {
+  background: var(--yellow);
+  color: var(--ink);
+  border-color: var(--ink);
+}
+
+.hf-tape-track {
+  display: flex;
+  width: max-content;
+}
+
+.hf-tape-run {
+  display: flex;
+  flex: none;
+}
+
+.hf-tape-run > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.6rem;
+  padding-right: 1.6rem;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.hf-tape-run i {
+  width: 9px;
+  height: 9px;
+  background: currentColor;
+  transform: rotate(45deg);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hf-tape-track {
+    animation: hf-tape-drift 38s linear infinite;
+  }
+}
+
+@keyframes hf-tape-drift {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 767.98px) {
+  .hf-tape-band {
+    height: 40px;
+    top: -20px;
+  }
+
+  .hf-tape-run > span {
+    font-size: 0.8125rem;
+    gap: 1.2rem;
+    padding-right: 1.2rem;
   }
 }

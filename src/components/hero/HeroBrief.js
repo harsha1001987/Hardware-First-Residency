@@ -10,24 +10,21 @@ const BRIEF = [
   ["Deadline", "24 October 2026"],
 ];
 
-// Always open. On desktop the panel floats over the photograph; on small
-// screens it sits inline beneath the CTA.
+// The black base of the hero, like the details band on the poster.
 export default function HeroBrief() {
   return (
-    <div className="hf-brief">
-      <aside className="hf-brief-panel" aria-labelledby="hf-brief-title">
-        <p id="hf-brief-title" className="hf-brief-title">
-          The build brief
-        </p>
-        <dl>
-          {BRIEF.map(([k, v]) => (
-            <div key={k}>
-              <dt>{k}</dt>
-              <dd>{v}</dd>
-            </div>
-          ))}
-        </dl>
-      </aside>
-    </div>
+    <aside className="hf-brief hf-reveal" style={{ "--d": "600ms" }} aria-labelledby="hf-brief-title">
+      <p id="hf-brief-title" className="hf-brief-title">
+        The build brief
+      </p>
+      <dl>
+        {BRIEF.map(([k, v]) => (
+          <div key={k} data-key={k.toLowerCase()}>
+            <dt>{k}</dt>
+            <dd>{v}</dd>
+          </div>
+        ))}
+      </dl>
+    </aside>
   );
 }

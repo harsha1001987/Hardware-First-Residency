@@ -45,7 +45,7 @@ export default function Experience() {
       <div className="hf-xp-intro">
         <h2 id="xp-title" className="hf-display hf-xp-title" data-reveal>
           <span className="hf-xp-line">Six days.</span> <span className="hf-xp-line">One project.</span>{" "}
-          <span className="hf-xp-line hf-accent">Real progress.</span>
+          <span className="hf-xp-line hf-accent-outline">Real progress.</span>
         </h2>
       </div>
 

@@ -9,6 +9,7 @@ import Partners from "@/components/sections/Partners";
 import RevealObserver from "@/components/sections/RevealObserver";
 import Sponsors from "@/components/sections/Sponsors";
 import Support from "@/components/sections/Support";
+import Tape from "@/components/sections/Tape";
 import Toolkit from "@/components/sections/Toolkit";
 import "@/components/sections/sections.css";
 
@@ -18,6 +19,7 @@ export default function Home() {
       <SiteNav />
       <main>
         <Hero />
+        <Tape tone="yellow" tilt={-1.4} />
         <Experience />
         <Toolkit />
         <Bring />
@@ -26,6 +28,7 @@ export default function Home() {
         <Partners />
         <Support />
         <Faqs />
+        <Tape tilt={1.4} />
         <Apply />
       </main>
       <SiteFooter />

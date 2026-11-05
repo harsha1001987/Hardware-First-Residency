@@ -9,24 +9,18 @@ const DETAILS = [
   ["Selection", "Six selected builders"],
 ];
 
-// The final call: one glass panel (with its own photograph) — headline, button, facts.
+// The final call: a black poster card on the yellow grid — headline, button, facts.
 export function Apply() {
   return (
     <section id="apply" className="hf-sec hf-apply" aria-labelledby="apply-title">
       <div className="hf-apply-card" data-reveal>
-        {/* The photograph lives inside the panel: blurred, grained, darkened, clipped to it. */}
-        <div className="hf-apply-media" aria-hidden="true">
-          <Image src="/images/workbench.jpg" alt="" fill sizes="(max-width: 1100px) 100vw, 1100px" className="hf-cover" />
-        </div>
-
         <h2 id="apply-title" className="hf-display hf-apply-title">
           <span className="hf-apply-line">Your build deserves</span>{" "}
-          <span className="hf-apply-line hf-accent">six focused days.</span>
+          <span className="hf-apply-line hf-accent-outline">six focused days.</span>
         </h2>
 
         <a href={APPLY_URL} className="hf-apply-cta">
-          <span className="hf-apply-cta-sheen" aria-hidden="true" />
-          <span className="hf-apply-cta-label">Apply for residency</span>
+          Apply for residency
           <span className="hf-arrow" aria-hidden="true">
             ↗
           </span>
