@@ -1,44 +1,18 @@
 import Image from "next/image";
-import { PARTNERS } from "@/config/site";
-import HeroBrief from "./HeroBrief";
+import { PARTNERS, X_URL } from "@/config/site";
 import HeroPointer from "./HeroPointer";
 import "./Hero.css";
 
-// A one-line window that rolls 01 up to `to` and lands on the word (see Hero.css).
-// The digits are generated content, so text and screen readers only get the word.
-function Count({ word, to, delay }) {
-  return (
-    <span className="hf-count" style={{ "--count-d": delay, "--to": to }}>
-      <span className="hf-count-reel" data-to={to}>
-        {word}
-      </span>
-    </span>
-  );
-}
-
 // The Demo Day poster as a page: yellow, gridded, the handoff figure on the right
-// and the build brief as the black base.
+// with the annotated pointer.
 export default function Hero() {
   return (
     <section id="top" className="hf-hero hf-gridded" aria-labelledby="hero-title">
       <div className="hf-hero-main">
-        {/* The poster's top line: hosts and venue, each linking to their site. */}
-        <div className="hf-hero-hosts hf-reveal" style={{ "--d": "0ms" }}>
-          {[PARTNERS.pcbCupid, PARTNERS.laksh, PARTNERS.foundingCo].map((p, i) => (
-            <span key={p.name} className="hf-hero-host">
-              {i > 0 && (
-                <span className="hf-hero-x" aria-hidden="true">
-                  ×
-                </span>
-              )}
-              <a href={p.href} target="_blank" rel="noopener noreferrer" aria-label={`${p.name} (opens in a new tab)`}>
-                <Image src={p.logo} alt="" width={p.w} height={p.h} />
-                {p === PARTNERS.foundingCo && <span className="hf-hero-host-name">{p.name}</span>}
-              </a>
-            </span>
-          ))}
-          <span className="hf-hero-label">In-person hardware residency</span>
-        </div>
+        <p className="hf-hero-label hf-reveal" style={{ "--d": "0ms" }}>
+          <span className="hf-hero-dot" aria-hidden="true" />
+          Cohort 02 coming soon
+        </p>
 
         <h1 id="hero-title" className="hf-hero-title">
           <span className="hf-hero-line hf-reveal" style={{ "--d": "80ms" }}>
@@ -48,23 +22,47 @@ export default function Hero() {
             <span className="hf-outline">First</span> <span className="hf-hero-tag">Residency</span>
           </span>{" "}
           <span className="hf-hero-sub hf-reveal" style={{ "--d": "270ms" }}>
-            Bring your project. Let&rsquo;s take it closer to a product.
+            A six-day residency that helps hardware builders turn a working project into a product.
           </span>
         </h1>
 
-        <p className="hf-hero-desc hf-reveal" style={{ "--d": "370ms" }}>
-          <Count word="Eight" to={8} delay="760ms" /> hardware builders. <Count word="Six" to={6} delay="980ms" />{" "}
-          focused days.
-        </p>
-
         <div className="hf-hero-actions hf-reveal" style={{ "--d": "450ms" }}>
-          <p className="hf-hero-cta hf-hero-cta--closed">Applications closed</p>
-          <a href="#what-you-get" className="hf-hero-explore">
-            See what you get
+          <a
+            href={X_URL}
+            className="hf-hero-cta"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Follow Hardware First on X for cohort 02 news (opens in a new tab)"
+          >
+            Follow us on X
+            <span className="hf-arrow" aria-hidden="true">
+              ↗
+            </span>
+          </a>
+          <a href="#cohort-01" className="hf-hero-explore">
+            See how cohort 01 went
             <span className="hf-arrow-down" aria-hidden="true">
               ↓
             </span>
           </a>
+        </div>
+
+        {/* Who hosts it, quietly, under the buttons. Each logo links to its site. */}
+        <div className="hf-hero-hosts hf-reveal" style={{ "--d": "540ms" }}>
+          <span className="hf-hero-hosts-label">Hosted by</span>
+          {[PARTNERS.pcbCupid, PARTNERS.laksh, PARTNERS.foundingCo].map((p) => (
+            <a
+              key={p.name}
+              href={p.href}
+              className="hf-hero-host"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${p.name} (opens in a new tab)`}
+            >
+              <Image src={p.logo} alt="" width={p.w} height={p.h} />
+              <span>{p.name}</span>
+            </a>
+          ))}
         </div>
       </div>
 
@@ -81,7 +79,6 @@ export default function Hero() {
         />
       </figure>
 
-      <HeroBrief />
       <HeroPointer />
     </section>
   );

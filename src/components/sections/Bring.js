@@ -30,8 +30,9 @@ export default function Bring() {
   return (
     <section id="what-to-bring" className="hf-sec hf-sec--dark hf-inv" aria-labelledby="inv-title">
       <div className="hf-inv-head" data-reveal>
+        <p className="hf-label">Joining cohort 02</p>
         <h2 id="inv-title" className="hf-display hf-inv-title">
-          What we expect <span className="hf-accent">from you</span>
+          What we expect from builders
         </h2>
         <p className="hf-inv-copy">Come ready to build, contribute, collaborate, and make meaningful progress.</p>
       </div>
@@ -57,7 +58,6 @@ export default function Bring() {
                   aria-controls={`${uid}-${i}`}
                   onClick={() => setOpen(expanded ? -1 : i)}
                 >
-                  <span className="hf-inv-num">0{i + 1}</span>
                   <span className="hf-inv-name">{item.title}</span>
                   <span className="hf-inv-icon" aria-hidden="true" />
                 </button>

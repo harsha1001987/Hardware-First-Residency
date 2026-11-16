@@ -1,20 +1,20 @@
 @import "tailwindcss";
 
 :root {
-  --mineral: #f4f2ee;
-  --midnight: #0c0c0a;
-  --footer-black: #0a0a0a;
-  --ink: #0c0c0a;
+  --mineral: #f7f3ea;
+  --midnight: #171614;
+  --footer-black: #121110;
+  --ink: #171614;
   --white: #ffffff;
-  /* Poster yellow (the "F" on the HF tile): the one accent. On light surfaces it is paired with ink. */
-  --yellow: #ffdd1f;
-  --yellow-rgb: 255 221 31;
+  /* Warm golden yellow: the one accent. On light surfaces it is paired with ink. */
+  --yellow: #f7c531;
+  --yellow-rgb: 247 197 49;
   --white-muted: rgb(255 255 255 / 0.4);
-  --rule-dark: rgb(12 12 10 / 0.18);
+  --rule-dark: rgb(23 22 20 / 0.18);
   --rule-light: rgb(255 255 255 / 0.12);
 
-  --pad: clamp(24px, 5vw, 80px);
-  --gap: clamp(16px, 1.7vw, 24px);
+  --pad: clamp(24px, 6.5vw, 120px);
+  --gap: clamp(20px, 2.4vw, 40px);
   --nav-h: clamp(72px, 6.2vw, 88px);
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 
@@ -27,7 +27,7 @@
   --color-ink: var(--ink);
   --color-yellow: var(--yellow);
   --color-rule: var(--rule-dark);
-  --font-display: var(--font-montserrat);
+  --font-display: var(--font-archivo);
   --font-sans: var(--font-montserrat);
 }
 
@@ -45,6 +45,7 @@ body {
   background: var(--mineral);
   color: var(--ink);
   font-family: var(--font-montserrat), "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: 0.012em;
   overflow-x: clip;
 }
 
@@ -77,8 +78,8 @@ body {
 
 .hf-gridded {
   background-image:
-    linear-gradient(rgb(12 12 10 / 0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(12 12 10 / 0.07) 1px, transparent 1px);
+    linear-gradient(rgb(23 22 20 / 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(23 22 20 / 0.07) 1px, transparent 1px);
   background-size: 40px 40px;
   background-position: -1px -1px;
 }
@@ -87,7 +88,7 @@ body {
    contours stay hidden under it (paint-order draws the stroke first). */
 .hf-outline {
   /* Looser than solid display type so neighbouring outlines never cross. */
-  letter-spacing: 0;
+  letter-spacing: 0.015em;
   color: var(--outline-fill, var(--yellow));
   -webkit-text-stroke: var(--outline-w, 0.05em) var(--outline-ink, var(--ink));
   paint-order: stroke fill;

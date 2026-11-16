@@ -2,7 +2,7 @@
 
 import { useEffect, useId, useState } from "react";
 import Image from "next/image";
-import { DEMO_DAY_URL, NAV_LINKS, PARTNERS } from "@/config/site";
+import { NAV_LINKS, PARTNERS, X_URL } from "@/config/site";
 import "./SiteNav.css";
 
 // "Hosted by" with both organisers' logos, shown in the menu panel.
@@ -43,14 +43,12 @@ export default function SiteNav() {
     return () => io.disconnect();
   }, []);
 
-  // Ink on yellow over the hero; gains a solid midnight surface before the
-  // hero's black brief band reaches it, so the links always stay legible.
+  // Ink on yellow over the hero; gains a solid midnight surface as the hero
+  // scrolls away, so the links always stay legible.
   useEffect(() => {
     const hero = document.getElementById("top");
     const onScroll = () => {
-      // Turn solid once the hero's black brief band reaches the bar.
-      const brief = hero?.querySelector(".hf-brief");
-      const limit = hero ? hero.offsetHeight - (brief?.offsetHeight ?? 0) - 80 : 80;
+      const limit = hero ? hero.offsetHeight - 80 : 80;
       setSolid(window.scrollY > limit);
     };
     onScroll();
@@ -100,9 +98,15 @@ export default function SiteNav() {
         </ul>
 
         <div className="hf-nav-actions">
-          <a href={DEMO_DAY_URL} className="hf-nav-apply">
-            <span className="hf-nav-apply-long">Apply for demo day</span>
-            <span className="hf-nav-apply-short">Apply</span>
+          <a
+            href={X_URL}
+            className="hf-nav-apply"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Follow Hardware First on X (opens in a new tab)"
+          >
+            <span className="hf-nav-apply-long">Follow us on X</span>
+            <span className="hf-nav-apply-short">Follow</span>
             <span className="hf-arrow" aria-hidden="true">
               ↗
             </span>

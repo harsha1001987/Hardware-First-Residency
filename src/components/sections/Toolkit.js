@@ -46,7 +46,7 @@ const TILES = [
     key: "days",
     title: "Six days of focused building",
     text: "Build alongside seven other selected builders.",
-    more: "1–6 November 2026, Hyderabad.",
+    more: "1 to 6 November 2026, Hyderabad.",
     image: {
       src: "/images/community-demo.jpg",
       alt: "Builders at a table with a servo-driven arm prototype, laptops open.",
@@ -74,8 +74,6 @@ const TILES = [
   },
 ];
 
-const pad = (n) => String(n).padStart(2, "0");
-
 function Card({ tile, n }) {
   const { key, title, text, more, boxes, image, credit } = tile;
   return (
@@ -86,7 +84,6 @@ function Card({ tile, n }) {
         </div>
       )}
       <div className="hf-kit-body">
-        <span className="hf-kit-num">{pad(n)}</span>
         <h3 className="hf-kit-name">{title}</h3>
         {text && <p className="hf-kit-text">{text}</p>}
         {boxes && (
@@ -122,9 +119,13 @@ export default function Toolkit() {
   return (
     <section id="what-you-get" className="hf-sec hf-sec--mineral hf-kit" aria-labelledby="kit-title">
       <div className="hf-kit-head" data-reveal>
+        <p className="hf-label">The residency</p>
         <h2 id="kit-title" className="hf-display hf-kit-title">
-          The tools. The people. <span className="hf-outline">The space.</span>
+          What builders get
         </h2>
+        <p className="hf-sec-lede">
+          Six days with a lab, engineering help, mentors, and a place to stay and work, all in Hyderabad.
+        </p>
       </div>
 
       <ul className="hf-kit-grid">

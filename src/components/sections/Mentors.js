@@ -108,10 +108,11 @@ export default function Mentors() {
   return (
     <section id="mentors" className="hf-sec hf-mnt" aria-labelledby="mnt-title">
       <div className="hf-mnt-head" data-reveal>
+        <p className="hf-label">The mentors</p>
         <h2 id="mnt-title" className="hf-display hf-mnt-title">
-          Meet your <span className="hf-outline">mentors.</span>
+          Meet the mentors
         </h2>
-        <p className="hf-mnt-copy">Hardware, software, robotics and manufacturing.</p>
+        <p className="hf-mnt-copy">They work across hardware, software, robotics and manufacturing.</p>
       </div>
 
       <div className="hf-mnt-rail">

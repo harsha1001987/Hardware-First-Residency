@@ -1,39 +1,43 @@
 import Image from "next/image";
-import { DEMO_DAY_URL, COMPANY, PARTNERS } from "@/config/site";
+import { COMPANY, PARTNERS, X_HANDLE, X_URL } from "@/config/site";
 import { ICONS, LAKSH_LINKS, PCB_CUPID_LINKS } from "@/components/SocialIcons";
 
-const DETAILS = [
-  ["Residency", "01–06 November 2026"],
-  ["Location", "Hyderabad, India"],
-  ["Application deadline", "24 October 2026"],
-  ["Selection", "Eight selected builders"],
-];
+const HF_LINKS = [{ href: X_URL, icon: "x", label: `@${X_HANDLE}`, aria: `Hardware First on X, @${X_HANDLE}` }];
 
-// The final call: a black poster card on the yellow grid: headline, button, facts.
+// The end of the story: what's next for builders, and how others can help.
 export function Apply() {
   return (
-    <section id="apply" className="hf-sec hf-apply" aria-labelledby="apply-title">
-      <div className="hf-apply-card" data-reveal>
-        <h2 id="apply-title" className="hf-display hf-apply-title">
-          <span className="hf-apply-line">Applications</span>{" "}
-          <span className="hf-apply-line hf-accent-outline">closed.</span>
+    <section id="apply" className="hf-sec hf-next" aria-labelledby="apply-title">
+      <div className="hf-next-main" data-reveal>
+        <p className="hf-label">What&rsquo;s next</p>
+        <h2 id="apply-title" className="hf-display">
+          Cohort 02 starts soon
         </h2>
-
-        <a href={DEMO_DAY_URL} className="hf-apply-cta">
-          Apply for demo day
+        <p className="hf-sec-lede">
+          We will share the dates and open applications on X first. Follow us to hear when it opens.
+        </p>
+        <a
+          href={X_URL}
+          className="hf-next-cta"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Follow @${X_HANDLE} on X (opens in a new tab)`}
+        >
+          Follow us on X
           <span className="hf-arrow" aria-hidden="true">
             ↗
           </span>
         </a>
+      </div>
 
-        <dl className="hf-apply-details">
-          {DETAILS.map(([k, v]) => (
-            <div key={k}>
-              <dt>{k}</dt>
-              <dd>{v}</dd>
-            </div>
-          ))}
-        </dl>
+      <div className="hf-next-help" data-reveal style={{ "--d": "120ms" }}>
+        <h3 className="hf-next-help-title">Want to help?</h3>
+        <p>
+          We are looking for people who can offer expertise, equipment, components or funding for the next cohort.
+        </p>
+        <a href={`tel:${COMPANY.phone.replace(/\s/g, "")}`} className="hf-next-call">
+          Call {COMPANY.phone}
+        </a>
       </div>
     </section>
   );
@@ -78,6 +82,7 @@ export function SiteFooter() {
             <Image src={PARTNERS.laksh.logo} alt="" width={PARTNERS.laksh.w} height={PARTNERS.laksh.h} />
             Projects by Laksh
           </p>
+          <FootLinks label="Hardware First links" links={HF_LINKS} />
         </div>
 
         {/* PCB Cupid and its contact details: one left-aligned column. */}
