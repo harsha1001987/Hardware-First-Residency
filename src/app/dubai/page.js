@@ -190,7 +190,8 @@ export default function DubaiMeet() {
             <h2 id="dx-why" className="hf-display">
               12 hardware founders around one table
             </h2>
-            <figure className="hf-dx-why-img hf-zoom">
+            <figure className="hf-dx-why-fig">
+              <div className="hf-dx-why-img hf-zoom">
               <Image
                 src={`${IMG}/demo-day-group.jpg`}
                 alt="Builders, mentors and hosts at a Hardware First event in Hyderabad."
@@ -198,6 +199,8 @@ export default function DubaiMeet() {
                 sizes="(max-width: 1023px) 100vw, 40vw"
                 className="hf-cover"
               />
+            </div>
+              <figcaption>Pictures from Hardware First cohort 01, Hyderabad</figcaption>
             </figure>
           </div>
           <div className="hf-dx-why-body" data-reveal style={{ "--d": "120ms" }}>

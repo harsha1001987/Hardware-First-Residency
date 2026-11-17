@@ -875,3 +875,15 @@
     text-wrap: pretty;
   }
 }
+
+/* Caption under the cohort 01 photo. */
+.hf-dx-why-fig {
+  margin: 0;
+}
+
+.hf-dx-why-fig figcaption {
+  margin-top: 0.6rem;
+  color: rgb(255 255 255 / 0.5);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
