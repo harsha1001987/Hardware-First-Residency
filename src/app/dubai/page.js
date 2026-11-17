@@ -322,8 +322,8 @@ export default function DubaiMeet() {
               Save your seat at the table
             </h2>
             <p className="hf-sec-lede">
-              We kept it small so every build gets a proper look. Tell us what you&rsquo;re bringing when you register,
-              and we&rsquo;ll confirm your place by email.
+              Small on purpose, so every build gets a proper look. Tell us what you&rsquo;re bringing and we&rsquo;ll
+              confirm by email.
             </p>
             <div className="hf-dx-actions">
               <RequestPlace />

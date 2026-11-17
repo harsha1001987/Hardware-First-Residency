@@ -807,3 +807,71 @@
     gap: 0.6rem 1rem;
   }
 }
+
+/* Phones: fewer pieces in the hero, left-aligned close. */
+@media (max-width: 767.98px) {
+  .hf-dx-hero {
+    min-height: 100svh;
+    justify-content: center;
+  }
+
+  .hf-dx-sub,
+  .hf-dx-tag,
+  .hf-dx-hosts-label,
+  .hf-dx-hosts-sep {
+    display: none;
+  }
+
+  .hf-dx-when {
+    margin-top: 1rem;
+  }
+
+  .hf-dx-actions {
+    margin-top: 1.5rem;
+  }
+
+  .hf-dx-hosts-row {
+    flex-wrap: nowrap;
+    gap: 1.25rem;
+    margin-top: 2rem;
+    padding-top: 1rem;
+  }
+
+  .hf-dx-host {
+    font-size: 0.75rem;
+  }
+
+  .hf-dx-host img {
+    height: 20px;
+  }
+
+  .hf-dx-join {
+    text-align: left;
+  }
+
+  .hf-dx-join-inner {
+    align-items: flex-start;
+  }
+
+  .hf-dx-join .hf-display {
+    margin-top: 0.5rem;
+  }
+
+  .hf-dx-join .hf-sec-lede,
+  .hf-dx-hosts {
+    margin-inline: 0;
+  }
+
+  .hf-dx-join .hf-dx-actions {
+    justify-content: flex-start;
+  }
+
+  .hf-dx-signoff {
+    margin-top: 2rem;
+  }
+
+  .hf-dx-hosts {
+    margin-top: 0.75rem;
+    text-wrap: pretty;
+  }
+}
