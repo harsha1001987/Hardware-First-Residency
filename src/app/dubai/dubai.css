@@ -1,0 +1,809 @@
+/*
+ * /dubai: the Dubai builders meet, styled after its Luma cover. A dark café
+ * at night, warm bulb light, heavy white type and one bright yellow. Reuses
+ * the home page's section shell, labels and photo reel.
+ */
+
+.hf-dx {
+  /* The cover's palette. */
+  --yellow: #fcdc1e;
+  --dx-black: #000;
+    --dx-cream: #f6efe4;
+
+  background: var(--dx-black);
+  color: var(--dx-cream);
+}
+
+/* Headings in heavy Montserrat with tight tracking, like the cover. */
+.hf-dx :is(.hf-display, .hf-dx-title, .hf-dx-points h3) {
+  font-family: var(--font-montserrat), "Helvetica Neue", Arial, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.hf-dx .hf-sec--dark {
+  --body: rgb(246 239 228 / 0.72);
+  --muted: rgb(246 239 228 / 0.55);
+  color: var(--dx-cream);
+}
+
+/* ---------- Top bar ---------- */
+
+.hf-dx-bar {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--nav-h);
+  padding: 0 var(--pad);
+}
+
+.hf-dx-logo {
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 2rem;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  color: var(--white);
+  text-decoration: none;
+}
+
+.hf-dx-logo span {
+  color: var(--yellow);
+}
+
+.hf-dx-home {
+  padding-bottom: 0.15rem;
+  border-bottom: 1.5px solid var(--yellow);
+  color: var(--dx-cream);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+}
+
+.hf-dx-nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 2.4vw, 2rem);
+}
+
+.hf-dx-nav-cta {
+  display: inline-flex;
+  align-items: center;
+  height: 2.375rem;
+  padding: 0 1rem;
+  border-radius: 5px;
+  background: var(--yellow);
+  color: #000;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.hf-dx-nav-cta:hover,
+.hf-dx-nav-cta:focus-visible {
+  background: #ffe64d;
+}
+
+/* ---------- Hero ---------- */
+
+.hf-dx-hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100svh;
+  padding: var(--nav-h) var(--pad) clamp(3rem, 8svh, 6rem);
+  text-align: center;
+  background: var(--dx-black);
+}
+
+.hf-dx-hero-text {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 72rem;
+}
+
+.hf-dx-kicker {
+  margin: 0;
+  color: var(--yellow);
+  font-size: clamp(0.875rem, 0.8rem + 0.3vw, 1.0625rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.hf-dx-title {
+  margin: 0.6rem 0 0;
+  text-shadow: 0 2px 30px rgb(0 0 0 / 0.5);
+  color: var(--white);
+  font-size: clamp(2.75rem, min(7.4vw, 12svh), 6.75rem);
+  line-height: 0.98;
+  text-wrap: balance;
+}
+
+.hf-dx-title > span:not(.sr-only) {
+  display: block;
+}
+
+.hf-dx-when {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.25rem 0;
+  margin: 1.2rem 0 0;
+  color: var(--white);
+  text-shadow: 0 1px 12px rgb(0 0 0 / 0.7);
+  font-size: clamp(0.8125rem, 0.78rem + 0.3vw, 1rem);
+  font-weight: 600;
+}
+
+.hf-dx-when {
+  column-gap: clamp(1.25rem, 2.4vw, 2rem) !important;
+}
+
+.hf-dx-when span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hf-dx-icon {
+  flex: none;
+  width: 1.05em;
+  height: 1.05em;
+  color: var(--yellow);
+}
+
+.hf-dx-map .hf-dx-icon {
+  margin-right: 0.15rem;
+}
+
+.hf-dx-nav-x {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.hf-dx-x {
+  display: inline-flex;
+}
+
+.hf-dx-sub {
+  max-width: 34rem;
+  margin: 1.4rem 0 0;
+  color: rgb(255 255 255 / 0.88);
+  text-shadow: 0 1px 12px rgb(0 0 0 / 0.6);
+  font-size: var(--fs-lede);
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
+.hf-dx-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem 1.75rem;
+  margin-top: clamp(1.5rem, 3.5svh, 2.25rem);
+}
+
+.hf-dx-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  height: 2.75rem;
+  margin: 0;
+  padding: 0 1.3rem;
+  border-radius: 5px;
+  background: var(--yellow);
+  color: var(--dx-black);
+  font-size: 0.8125rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.hf-dx-cta:hover,
+.hf-dx-cta:focus-visible {
+  background: #ffe64d;
+}
+
+.hf-dx-cta .hf-arrow {
+  transition: transform 0.25s var(--ease-out);
+}
+
+.hf-dx-cta:hover .hf-arrow,
+.hf-dx-cta:focus-visible .hf-arrow {
+  transform: translate(3px, -3px);
+}
+
+.hf-dx-soon {
+  cursor: default;
+  opacity: 0.85;
+}
+
+.hf-dx-textlink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--dx-cream);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  border-bottom: 1.5px solid rgb(246 239 228 / 0.35);
+  padding-bottom: 0.15rem;
+  transition: border-color 0.2s ease;
+}
+
+.hf-dx-textlink:hover,
+.hf-dx-textlink:focus-visible {
+  border-color: var(--yellow);
+}
+
+/* The cover's café table, fading up into the black like the cover does. */
+.hf-dx-hero-photo {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  margin: 0;
+}
+
+.hf-dx-hero-photo .hf-cover {
+  object-position: 50% 35%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* The café photo drifts in slowly, like walking up to the table. */
+  .hf-dx-hero-photo .hf-cover {
+    animation: hf-dx-push 18s ease-out both;
+  }
+}
+
+@keyframes hf-dx-push {
+  from {
+    transform: scale(1.12);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* Translucent black over the café table, with a darker pool just behind the words. */
+.hf-dx-hero-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 52%, rgb(0 0 0 / 0.55) 0%, rgb(0 0 0 / 0.3) 55%, transparent 100%),
+    linear-gradient(to bottom, rgb(0 0 0 / 0.6) 0%, rgb(0 0 0 / 0.35) 55%, rgb(0 0 0 / 0.7) 100%);
+  pointer-events: none;
+}
+
+
+/* ---------- Sections ---------- */
+
+.hf-dx-sec {
+  background: var(--dx-black);
+}
+
+.hf-dx-why {
+  background: var(--dx-black);
+}
+
+.hf-dx-head {
+  grid-column: 1 / 8;
+}
+
+/* What to expect */
+.hf-dx-points {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--gap);
+  margin: clamp(2.5rem, 5vw, 4rem) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hf-dx-points li {
+}
+
+.hf-dx-points h3 {
+  margin: 0;
+  color: var(--white);
+  font-size: var(--fs-h3);
+  line-height: 1.15;
+}
+
+.hf-dx-points p {
+  margin: 0.75rem 0 0;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--body);
+}
+
+/* Why */
+.hf-dx-why .hf-dx-head {
+  grid-column: 1 / 6;
+}
+
+.hf-dx-why-body {
+  grid-column: 7 / -1;
+  align-self: end;
+}
+
+.hf-dx-why-body p {
+  margin: 0 0 1rem;
+  font-size: var(--fs-lede);
+  line-height: 1.65;
+  color: var(--body);
+}
+
+.hf-dx-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.75rem;
+  margin-top: 1.5rem;
+}
+
+.hf-dx .hf-co-link {
+  color: var(--dx-cream);
+}
+
+.hf-dx-reel {
+  margin-top: clamp(3rem, 6vw, 5rem);
+}
+
+/* Where */
+.hf-dx-map {
+  margin-top: 1.5rem;
+}
+
+.hf-dx-thanks {
+  max-width: 30rem;
+  margin: 2rem 0 0;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--body);
+}
+
+.hf-dx-where {
+  background: var(--dx-black);
+}
+
+.hf-dx-where .hf-dx-head {
+  grid-column: 1 / 6;
+  align-self: center;
+}
+
+.hf-dx-venue {
+  grid-column: 7 / -1;
+  align-self: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(10px, 1.2vw, 18px);
+  align-items: center;
+}
+
+.hf-dx-venue-shot {
+  margin: 0;
+}
+
+.hf-dx-venue-shot .hf-zoom {
+  aspect-ratio: 445 / 500;
+  border-radius: 8px;
+}
+
+.hf-dx-venue-shot:nth-child(2) .hf-zoom {
+  aspect-ratio: 450 / 444;
+}
+
+.hf-dx-venue-shot figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin-top: 0.7rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--dx-cream);
+}
+
+.hf-dx-venue-shot figcaption span {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+/* The turn in the story: from Hyderabad to Dubai. */
+.hf-dx-why-body .hf-dx-turn {
+  margin-top: 1.5rem;
+  color: var(--white);
+  font-size: var(--fs-h3);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+/* Join: centred under a warm glow, like the bulbs over the table. */
+.hf-dx-join {
+  background: var(--dx-black);
+  text-align: center;
+}
+
+.hf-dx-join-inner {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hf-dx-join .hf-display {
+  margin-top: 0.75rem;
+  color: var(--white);
+  font-size: clamp(2.25rem, 4.6vw, 4rem);
+}
+
+.hf-dx-join .hf-sec-lede {
+  margin-inline: auto;
+}
+
+.hf-dx-signoff {
+  margin: clamp(2.5rem, 5vw, 4rem) 0 0;
+  color: var(--yellow);
+  font-size: clamp(1.25rem, 1.1rem + 0.8vw, 1.75rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1023.98px) {
+  .hf-dx-head,
+  .hf-dx-why .hf-dx-head,
+  .hf-dx-why-body,
+  .hf-dx-where .hf-dx-head,
+  .hf-dx-venue {
+    grid-column: 1 / -1;
+  }
+
+  .hf-dx-why-body,
+  .hf-dx-venue {
+    margin-top: 2.5rem;
+  }
+
+  .hf-dx-points {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 767.98px) {
+  .hf-dx-nav .hf-dx-home {
+    display: none;
+  }
+
+  .hf-dx-when {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.45rem;
+  }
+
+}
+
+/* Plain labels and quiet underlines: no decorative marks. */
+.hf-dx .hf-label::before {
+  content: none;
+}
+
+.hf-dx .hf-co-link,
+.hf-dx-home {
+  border-bottom-color: rgb(246 239 228 / 0.35);
+}
+
+.hf-dx .hf-co-link:hover,
+.hf-dx .hf-co-link:focus-visible,
+.hf-dx-home:hover,
+.hf-dx-home:focus-visible {
+  border-bottom-color: var(--dx-cream);
+}
+
+/* The page ends in plain black too: no hazard stripe on the footer. */
+.hf-dx .hf-foot {
+  background: var(--dx-black);
+  border-top: 0;
+}
+
+.hf-dx .hf-foot::before {
+  content: none;
+}
+
+/* Section labels in the cover's yellow. */
+.hf-dx .hf-label {
+  color: var(--yellow);
+  font-size: 0.8125rem;
+  letter-spacing: 0.02em;
+}
+
+/* Why: heading with a big photo under it, story on the right. */
+.hf-dx-why-img {
+  margin-top: clamp(1.75rem, 3vw, 2.5rem);
+  aspect-ratio: 4 / 3;
+  border-radius: 8px;
+}
+
+/* What to bring: photo cards. */
+.hf-dx-point-img {
+  aspect-ratio: 4 / 3;
+  margin-bottom: 1.25rem;
+  border-radius: 8px;
+}
+
+/* Tighter rhythm than the home page: less empty black between sections. */
+.hf-dx .hf-dx-sec,
+.hf-dx .hf-dx-join {
+  padding-block: clamp(72px, 8vw, 128px);
+}
+
+.hf-dx-why-body {
+  align-self: center;
+}
+
+.hf-dx-venue {
+  align-items: start;
+}
+
+/* Join: Dubai at dusk behind translucent black. */
+.hf-dx-join {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: min(100svh, 820px);
+  align-content: center;
+}
+
+.hf-dx-join-photo {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  margin: 0;
+}
+
+.hf-dx-join-photo .hf-cover {
+  object-position: 50% 75%;
+}
+
+.hf-dx-join-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 55% 50% at 50% 50%, rgb(0 0 0 / 0.5), transparent 100%),
+    rgb(0 0 0 / 0.45);
+}
+
+.hf-dx-join-photo figcaption {
+  position: absolute;
+  right: var(--pad);
+  bottom: 1rem;
+  z-index: 1;
+  color: rgb(255 255 255 / 0.5);
+  font-size: 0.6875rem;
+}
+
+.hf-dx-join .hf-sec-lede {
+  color: rgb(255 255 255 / 0.88);
+}
+
+
+/* Phones: shorter photos, venue side by side, tighter type. */
+@media (max-width: 767.98px) {
+  .hf-dx-point-img,
+  .hf-dx-why-img {
+    aspect-ratio: 16 / 9;
+  }
+
+  .hf-dx-points {
+    gap: 2rem;
+  }
+
+  .hf-dx-venue {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .hf-dx-why-body .hf-dx-turn {
+    font-size: 1.125rem;
+  }
+
+  .hf-dx-hero {
+    padding-bottom: 2.5rem;
+  }
+
+  .hf-dx-title {
+    font-size: clamp(2rem, 9.5vw, 2.5rem);
+  }
+
+  .hf-dx-kicker {
+    font-size: 0.8125rem;
+  }
+
+  .hf-dx-when {
+    font-size: 0.8125rem;
+  }
+
+  .hf-dx-sub,
+  .hf-dx .hf-sec-lede,
+  .hf-dx-why-body p {
+    font-size: 0.9375rem;
+  }
+
+  .hf-dx .hf-display {
+    font-size: 1.625rem;
+    line-height: 1.15;
+  }
+
+  .hf-dx-join .hf-display {
+    font-size: 1.75rem;
+  }
+
+  .hf-dx-points h3 {
+    font-size: 1.125rem;
+  }
+
+  .hf-dx-why-body .hf-dx-turn {
+    font-size: 1rem;
+  }
+
+  .hf-dx-signoff {
+    font-size: 1.125rem;
+  }
+
+  .hf-dx-hosts {
+    font-size: 0.8125rem;
+  }
+
+  .hf-dx-cta {
+    height: 2.5rem;
+    font-size: 0.75rem;
+  }
+
+  .hf-dx-join {
+    min-height: 0;
+  }
+
+  .hf-dx-join-photo figcaption {
+    bottom: 0.6rem;
+  }
+
+  .hf-dx .hf-dx-sec,
+  .hf-dx .hf-dx-join {
+    padding-block: 64px;
+  }
+}
+
+/* Who's hosting, under the sign-off. */
+.hf-dx-hosts {
+  max-width: 34rem;
+  margin: 1.5rem auto 0;
+  color: rgb(255 255 255 / 0.8);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  text-wrap: balance;
+}
+
+.hf-dx-hosts strong,
+.hf-dx-hosts a {
+  color: var(--white);
+  font-weight: 800;
+}
+
+.hf-dx-hosts a {
+  text-decoration: none;
+  border-bottom: 1.5px solid var(--yellow);
+}
+
+/* Title, after the home page: one outlined word and a small tag. */
+.hf-dx-title > span {
+  display: block;
+}
+
+.hf-dx-outline {
+  color: var(--yellow);
+}
+
+.hf-dx-tag {
+  display: inline-block;
+  margin-left: 0.1em;
+  padding: 0.3em 0.55em 0.32em;
+  border-radius: 0.2em;
+  background: var(--yellow);
+  color: #000;
+  font-size: 0.24em;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-shadow: none;
+  vertical-align: middle;
+}
+
+/* Hosts row, as on the home page hero. */
+.hf-dx-hosts-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem 1.25rem;
+  margin-top: clamp(1.75rem, 4svh, 2.75rem);
+  padding-top: clamp(1rem, 2.4svh, 1.5rem);
+  border-top: 1px solid rgb(255 255 255 / 0.18);
+}
+
+.hf-dx-hosts-label {
+  color: rgb(255 255 255 / 0.6);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.hf-dx-host {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--white);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.hf-dx-host img {
+  width: auto;
+  height: 24px;
+  border-radius: 5px;
+}
+
+.hf-dx-host .hf-dx-host-mono {
+  border-radius: 0;
+}
+
+.hf-dx-host:hover span,
+.hf-dx-host:focus-visible span {
+  color: var(--yellow);
+}
+
+.hf-dx-hosts-sep {
+  width: 1px;
+  height: 1.25rem;
+  background: rgb(255 255 255 / 0.25);
+}
+
+.hf-dx-hero-photo figcaption {
+  position: absolute;
+  right: var(--pad);
+  bottom: 1rem;
+  z-index: 1;
+  color: rgb(255 255 255 / 0.5);
+  font-size: 0.6875rem;
+}
+
+@media (max-width: 767.98px) {
+  .hf-dx-hosts-sep {
+    flex-basis: 100%;
+    height: 0;
+    background: none;
+  }
+
+  .hf-dx-hosts-row {
+    gap: 0.6rem 1rem;
+  }
+}

@@ -96,3 +96,16 @@ export const SPONSOR_PARTNERS = [
   { name: "Launchd", logo: "/logos/launchd.png", mono: "/logos/mono/launchd.png", w: 117, h: 240, wordmark: true, href: "https://thelaunchd.com" },
 ];
 
+
+// The Dubai builders meet (/dubai). `rsvpUrl` is its Luma page; if emptied,
+// the page shows "Registration opens soon" instead of the button.
+export const DUBAI_MEET = {
+  date: "Sunday, 22 November 2026",
+  time: "2:30 to 5:30 pm",
+  venue: "RAW Coffee, Al Quoz 1, Dubai",
+  directions: "The warehouse next to RTA Carpark WH10, on the corner of 7A and 4A Street, off Al Manara Road.",
+  mapUrl: "https://www.google.com/maps/search/?api=1&query=25.1508404%2C55.2271809&query_place_id=ChIJbSAmv89rXz4ROS45tG_g-t4",
+  places: 12,
+  rsvpUrl: "https://luma.com/fskq095j",
+  tWorksPost: "https://lnkd.in/p/dEQ2VQuH",
+};
