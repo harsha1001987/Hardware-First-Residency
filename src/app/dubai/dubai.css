@@ -887,3 +887,11 @@
   font-size: 0.75rem;
   font-weight: 500;
 }
+
+.hf-dx-reel-caption {
+  grid-column: 1 / -1;
+  margin: 0.75rem 0 0;
+  color: rgb(255 255 255 / 0.5);
+  font-size: 0.75rem;
+  font-weight: 500;
+}

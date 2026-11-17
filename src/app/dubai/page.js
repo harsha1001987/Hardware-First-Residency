@@ -200,7 +200,7 @@ export default function DubaiMeet() {
                 className="hf-cover"
               />
             </div>
-              <figcaption>Pictures from Hardware First cohort 01, Hyderabad</figcaption>
+              <figcaption>Demo Day</figcaption>
             </figure>
           </div>
           <div className="hf-dx-why-body" data-reveal style={{ "--d": "120ms" }}>
@@ -245,6 +245,7 @@ export default function DubaiMeet() {
               ))}
             </ul>
           </div>
+          <p className="hf-dx-reel-caption">Pictures from Hardware First cohort 01, Hyderabad</p>
         </section>
 
         {/* What to bring */}
