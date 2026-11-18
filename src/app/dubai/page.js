@@ -129,7 +129,7 @@ export default function DubaiMeet() {
         </nav>
       </header>
 
-      <main>
+      <main className="hf-dx-main">
         {/* The invite */}
         <section className="hf-dx-hero" aria-labelledby="dx-title">
           <div className="hf-dx-hero-text">
@@ -382,6 +382,14 @@ export default function DubaiMeet() {
                 <span className="sr-only"> (opens in a new tab)</span>
               </a>
               , the youngest hardware and physical AI founder and hacker house resident.
+            </p>
+            <p className="hf-dx-join-partner">
+              <span>Ecosystem partner</span>
+              <a href={LAUNCHD.href} className="hf-dx-host" target="_blank" rel="noopener noreferrer">
+                <Image src={LAUNCHD.mono} alt="" width={LAUNCHD.w} height={LAUNCHD.h} className="hf-dx-host-mono" />
+                <span>The Launchd</span>
+                <span className="sr-only"> (opens in a new tab)</span>
+              </a>
             </p>
           </div>
         </section>
