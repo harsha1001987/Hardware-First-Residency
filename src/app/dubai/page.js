@@ -290,10 +290,10 @@ export default function DubaiMeet() {
           <div className="hf-dx-head" data-reveal>
             <p className="hf-label">Where this started</p>
             <h2 id="dx-past" className="hf-display">
-              Before Dubai, there was Hyderabad
+              Before Dubai, there was Hyderabad, India
             </h2>
             <p className="hf-sec-lede">
-              These photos are from Hardware First cohort 01 in Hyderabad, where builders lived and built together in a
+              These photos are from Hardware First cohort 01 in Hyderabad, India, where builders lived and built together in a
               hacker house and ended with a Demo Day. Sunday is the first time we&rsquo;re bringing that table to Dubai.
             </p>
           </div>
@@ -301,17 +301,17 @@ export default function DubaiMeet() {
             <div className="hf-dx-past-img hf-zoom">
               <Image
                 src={`${IMG}/demo-day-group.jpg`}
-                alt="Builders, mentors and hosts together at the cohort 01 Demo Day in Hyderabad."
+                alt="Builders, mentors and hosts together at the cohort 01 Demo Day in Hyderabad, India."
                 fill
                 sizes="(max-width: 1023px) 100vw, 45vw"
                 className="hf-cover"
               />
             </div>
-            <figcaption>Cohort 01 Demo Day, Hyderabad</figcaption>
+            <figcaption>Cohort 01 Demo Day, Hyderabad, India</figcaption>
           </figure>
 
           <div className="hf-co-reel hf-dx-reel" data-reveal>
-            <ul className="hf-co-reel-track" aria-label="Photos from Hardware First cohort 01 in Hyderabad">
+            <ul className="hf-co-reel-track" aria-label="Photos from Hardware First cohort 01 in Hyderabad, India">
               {[...REEL, ...REEL].map((p, i) => (
                 <li
                   key={`${p.src}-${i}`}
