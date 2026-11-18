@@ -19,35 +19,37 @@ const LAUNCHD = SPONSOR_PARTNERS.find((p) => p.name === "Launchd");
 
 const BRING = [
   {
-    title: "Too big to carry?",
-    text: "Bring the part that matters and tell us about the rest when you register.",
-    img: "humanoid-hand.jpg",
-    alt: "A 3D-printed humanoid hand and forearm standing on a table.",
+    title: "Anything you made",
+    text: "A prototype, a PCB, a 3D print, a robot that only half works. Finished or held together with tape, it counts.",
   },
   {
-    title: "Hand it over",
-    text: "Let people try it. Watch what they do with it. Ten minutes of that teaches you more than a month alone.",
-    img: "handheld-play.jpg",
-    alt: "A young visitor trying a handheld build at a stall.",
+    title: "Too big to carry?",
+    text: "Bring the part that matters, or a video on your phone, and tell us about the rest when you register.",
   },
   {
     title: "No slides, no pitches",
-    text: "Just builds, coffee and honest conversation with people who get it.",
-    img: "mentor-chat.jpg",
-    alt: "Builders in conversation around a workbench.",
+    text: "Nobody is presenting at anyone. Just builds, coffee and honest conversation with people who get it.",
   },
+];
+
+// How the afternoon runs. Loose on purpose: no clock, no stage.
+const FLOW = [
+  { title: "Grab a coffee", text: "Come up to the mezzanine, find a seat and say hello." },
+  { title: "Round the table", text: "Each of the 12 gets a few minutes: what it is, why you built it, where you're stuck." },
+  { title: "Hands on", text: "Builds go around the table. People try them, break them a little and tell you what they think." },
+  { title: "Stay and talk", text: "The rest of the afternoon is yours: swap notes, parts and numbers." },
 ];
 
 // Photos from the Hyderabad residency and Demo Day, drifting past.
 const REEL = [
-  { src: "hand-demo.jpg", w: 1600, h: 900, alt: "A builder demonstrates a humanoid arm to a group of visitors." },
-  { src: "desk-robot.jpg", w: 900, h: 1600, alt: "A pink desk robot with a small screen showing two eyes." },
-  { src: "demo-visitors.jpg", w: 1600, h: 900, alt: "Visitors looking at boards and parts on a stall table." },
-  { src: "stall-huddle.jpg", w: 1024, h: 1024, alt: "A group huddled around a laptop and a build at a stall." },
-  { src: "handheld-play.jpg", w: 1600, h: 900, alt: "A young visitor trying a handheld build at a stall." },
-  { src: "humanoid-hand.jpg", w: 900, h: 1600, alt: "A black 3D-printed humanoid hand and forearm standing upright." },
-  { src: "mentor-chat.jpg", w: 1600, h: 900, alt: "A mentor in conversation with builders at a workbench." },
-  { src: "residency-floor.jpg", w: 1600, h: 1200, alt: "Builders working on the floor late at night, parts and laptops around them." },
+  { src: "hand-demo.jpg", cap: "Demoing a humanoid arm", w: 1600, h: 900, alt: "A builder demonstrates a humanoid arm to a group of visitors." },
+  { src: "desk-robot.jpg", cap: "A desk robot with a face", w: 900, h: 1600, alt: "A pink desk robot with a small screen showing two eyes." },
+  { src: "demo-visitors.jpg", cap: "Visitors at the stalls", w: 1600, h: 900, alt: "Visitors looking at boards and parts on a stall table." },
+  { src: "stall-huddle.jpg", cap: "A huddle around one build", w: 1024, h: 1024, alt: "A group huddled around a laptop and a build at a stall." },
+  { src: "handheld-play.jpg", cap: "A young visitor trying a handheld", w: 1600, h: 900, alt: "A young visitor trying a handheld build at a stall." },
+  { src: "humanoid-hand.jpg", cap: "A 3D-printed humanoid hand", w: 900, h: 1600, alt: "A black 3D-printed humanoid hand and forearm standing upright." },
+  { src: "mentor-chat.jpg", cap: "A mentor working it through with builders", w: 1600, h: 900, alt: "A mentor in conversation with builders at a workbench." },
+  { src: "residency-floor.jpg", cap: "Late night on the residency floor", w: 1600, h: 1200, alt: "Builders working on the floor late at night, parts and laptops around them." },
 ];
 
 // The venue: the way in, and the café floor from above.
@@ -92,8 +94,9 @@ function RequestPlace() {
 }
 
 // Styled after the Luma cover: a dark café, warm bulb light, white type, one yellow.
-// Read top to bottom it is one story: the invite, how it started, what to bring,
-// where the table is, and a seat at it.
+// Read top to bottom it is one story: the invite, what the afternoon is, what to
+// bring, where the table is, where this started (Hyderabad, labelled as such),
+// and a seat at it. Only Dubai photos sit beside Dubai details.
 export default function DubaiMeet() {
   return (
     <div className="hf-dx">
@@ -183,25 +186,13 @@ export default function DubaiMeet() {
           </figure>
         </section>
 
-        {/* How it started */}
+        {/* What this is, and how the afternoon goes */}
         <section className="hf-sec hf-sec--dark hf-dx-sec hf-dx-why" aria-labelledby="dx-why">
           <div className="hf-dx-head" data-reveal>
             <p className="hf-label">What this is</p>
             <h2 id="dx-why" className="hf-display">
               12 hardware founders around one table
             </h2>
-            <figure className="hf-dx-why-fig">
-              <div className="hf-dx-why-img hf-zoom">
-              <Image
-                src={`${IMG}/demo-day-group.jpg`}
-                alt="Builders, mentors and hosts at a Hardware First event in Hyderabad."
-                fill
-                sizes="(max-width: 1023px) 100vw, 40vw"
-                className="hf-cover"
-              />
-            </div>
-              <figcaption>Demo Day</figcaption>
-            </figure>
           </div>
           <div className="hf-dx-why-body" data-reveal style={{ "--d": "120ms" }}>
             <p>
@@ -223,29 +214,17 @@ export default function DubaiMeet() {
             </div>
           </div>
 
-          <div className="hf-co-reel hf-dx-reel" data-reveal>
-            <ul className="hf-co-reel-track" aria-label="Photos from the Hyderabad residency">
-              {[...REEL, ...REEL].map((p, i) => (
-                <li
-                  key={`${p.src}-${i}`}
-                  className="hf-co-reel-slide"
-                  style={{ "--ar": `${p.w} / ${p.h}` }}
-                  aria-hidden={i >= REEL.length ? "true" : undefined}
-                >
-                  <figure className="hf-zoom">
-                    <Image
-                      src={`${IMG}/${p.src}`}
-                      alt={i >= REEL.length ? "" : p.alt}
-                      fill
-                      sizes="(max-width: 767px) 60vw, 25vw"
-                      className="hf-cover"
-                    />
-                  </figure>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <p className="hf-dx-reel-caption">Pictures from Hardware First cohort 01, Hyderabad</p>
+          <ol className="hf-dx-flow" aria-label="How the afternoon goes">
+            {FLOW.map((f, i) => (
+              <li key={f.title} data-reveal style={{ "--d": `${i * 90}ms` }}>
+                <span className="hf-dx-flow-n" aria-hidden="true">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3>{f.title}</h3>
+                <p>{f.text}</p>
+              </li>
+            ))}
+          </ol>
         </section>
 
         {/* What to bring */}
@@ -263,9 +242,6 @@ export default function DubaiMeet() {
           <ul className="hf-dx-points">
             {BRING.map((p, i) => (
               <li key={p.title} data-reveal style={{ "--d": `${i * 110}ms` }}>
-                <figure className="hf-dx-point-img hf-zoom">
-                  <Image src={`${IMG}/${p.img}`} alt={p.alt} fill sizes="(max-width: 1023px) 100vw, 33vw" className="hf-cover" />
-                </figure>
                 <h3>{p.title}</h3>
                 <p>{p.text}</p>
               </li>
@@ -306,6 +282,56 @@ export default function DubaiMeet() {
                 </div>
               </figure>
             ))}
+          </div>
+        </section>
+
+        {/* Where this started: Hyderabad, clearly labelled as such */}
+        <section className="hf-sec hf-sec--dark hf-dx-sec hf-dx-past" aria-labelledby="dx-past">
+          <div className="hf-dx-head" data-reveal>
+            <p className="hf-label">Where this started</p>
+            <h2 id="dx-past" className="hf-display">
+              Before Dubai, there was Hyderabad
+            </h2>
+            <p className="hf-sec-lede">
+              These photos are from Hardware First cohort 01 in Hyderabad, where builders lived and built together in a
+              hacker house and ended with a Demo Day. Sunday is the first time we&rsquo;re bringing that table to Dubai.
+            </p>
+          </div>
+          <figure className="hf-dx-past-fig" data-reveal style={{ "--d": "120ms" }}>
+            <div className="hf-dx-past-img hf-zoom">
+              <Image
+                src={`${IMG}/demo-day-group.jpg`}
+                alt="Builders, mentors and hosts together at the cohort 01 Demo Day in Hyderabad."
+                fill
+                sizes="(max-width: 1023px) 100vw, 45vw"
+                className="hf-cover"
+              />
+            </div>
+            <figcaption>Cohort 01 Demo Day, Hyderabad</figcaption>
+          </figure>
+
+          <div className="hf-co-reel hf-dx-reel" data-reveal>
+            <ul className="hf-co-reel-track" aria-label="Photos from Hardware First cohort 01 in Hyderabad">
+              {[...REEL, ...REEL].map((p, i) => (
+                <li
+                  key={`${p.src}-${i}`}
+                  className="hf-co-reel-slide"
+                  style={{ "--ar": `${p.w} / ${p.h}` }}
+                  aria-hidden={i >= REEL.length ? "true" : undefined}
+                >
+                  <figure className="hf-zoom">
+                    <Image
+                      src={`${IMG}/${p.src}`}
+                      alt={i >= REEL.length ? "" : p.alt}
+                      fill
+                      sizes="(max-width: 767px) 60vw, 25vw"
+                      className="hf-cover"
+                    />
+                    <figcaption aria-hidden={i >= REEL.length ? "true" : undefined}>{p.cap}</figcaption>
+                  </figure>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
 
