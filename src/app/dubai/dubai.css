@@ -1,24 +1,22 @@
 /*
- * /dubai: the Dubai builders meet, styled after its Luma cover. A dark café
- * at night, warm bulb light, heavy white type and one bright yellow. Reuses
- * the home page's section shell, labels and photo reel.
+ * /dubai: the Dubai builders meet. Same system as the home page: one yellow,
+ * midnight, grid-paper mineral, Archivo headings, offset-shadow cards and the
+ * hazard stripe. Only the hero is its own: Dubai at dusk.
  */
 
 .hf-dx {
-  /* The cover's palette. */
-  --yellow: #fcdc1e;
-  --dx-black: #000;
-    --dx-cream: #f6efe4;
+  --dx-black: var(--midnight);
+  --dx-cream: var(--white);
 
   background: var(--dx-black);
   color: var(--dx-cream);
 }
 
-/* Headings in heavy Montserrat with tight tracking, like the cover. */
-.hf-dx :is(.hf-display, .hf-dx-title, .hf-dx-points h3) {
-  font-family: var(--font-montserrat), "Helvetica Neue", Arial, sans-serif;
+/* Headings in Archivo, as on the home page. */
+.hf-dx :is(.hf-display, .hf-dx-title, .hf-dx-points h3, .hf-dx-flow h3) {
+  font-family: var(--font-archivo), var(--font-montserrat), sans-serif;
   font-weight: 800;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.005em;
 }
 
 .hf-dx .hf-sec--dark {
@@ -88,7 +86,7 @@
 
 .hf-dx-nav-cta:hover,
 .hf-dx-nav-cta:focus-visible {
-  background: #ffe64d;
+  background: #ffd659;
 }
 
 /* ---------- Hero ---------- */
@@ -217,7 +215,7 @@
 
 .hf-dx-cta:hover,
 .hf-dx-cta:focus-visible {
-  background: #ffe64d;
+  background: #ffd659;
 }
 
 .hf-dx-cta .hf-arrow {
@@ -295,13 +293,6 @@
 
 /* ---------- Sections ---------- */
 
-.hf-dx-sec {
-  background: var(--dx-black);
-}
-
-.hf-dx-why {
-  background: var(--dx-black);
-}
 
 .hf-dx-head {
   grid-column: 1 / 8;
@@ -360,7 +351,7 @@
 }
 
 .hf-dx .hf-co-link {
-  color: var(--dx-cream);
+  color: inherit;
 }
 
 .hf-dx-reel {
@@ -380,9 +371,6 @@
   color: var(--body);
 }
 
-.hf-dx-where {
-  background: var(--dx-black);
-}
 
 .hf-dx-where .hf-dx-head {
   grid-column: 1 / 6;
@@ -430,7 +418,7 @@
 /* The turn in the story: from Hyderabad to Dubai. */
 .hf-dx-why-body .hf-dx-turn {
   margin-top: 1.5rem;
-  color: var(--white);
+  color: inherit;
   font-size: var(--fs-h3);
   font-weight: 800;
   letter-spacing: -0.01em;
@@ -502,39 +490,6 @@
 
 }
 
-/* Plain labels and quiet underlines: no decorative marks. */
-.hf-dx .hf-label::before {
-  content: none;
-}
-
-.hf-dx .hf-co-link,
-.hf-dx-home {
-  border-bottom-color: rgb(246 239 228 / 0.35);
-}
-
-.hf-dx .hf-co-link:hover,
-.hf-dx .hf-co-link:focus-visible,
-.hf-dx-home:hover,
-.hf-dx-home:focus-visible {
-  border-bottom-color: var(--dx-cream);
-}
-
-/* The page ends in plain black too: no hazard stripe on the footer. */
-.hf-dx .hf-foot {
-  background: var(--dx-black);
-  border-top: 0;
-}
-
-.hf-dx .hf-foot::before {
-  content: none;
-}
-
-/* Section labels in the cover's yellow. */
-.hf-dx .hf-label {
-  color: var(--yellow);
-  font-size: 0.8125rem;
-  letter-spacing: 0.02em;
-}
 
 /* Why: heading with a big photo under it, story on the right. */
 .hf-dx-why-img {
@@ -915,6 +870,14 @@
   letter-spacing: 0.04em;
 }
 
+.hf-dx-flow li {
+  padding: clamp(1.5rem, 2.4vw, 2rem);
+  border-radius: 10px;
+  background: var(--midnight);
+  box-shadow: 8px 8px 0 0 rgb(var(--yellow-rgb));
+  color: var(--white);
+}
+
 .hf-dx-flow h3 {
   margin: 0.75rem 0 0;
   color: var(--white);
@@ -928,14 +891,19 @@
   margin: 0.6rem 0 0;
   font-size: 0.9375rem;
   line-height: 1.6;
-  color: var(--body);
+  color: rgb(255 255 255 / 0.72);
 }
 
 /* What to bring: quiet text cards now that the photos live in their own section. */
 .hf-dx-points li {
   padding: clamp(1.5rem, 2.4vw, 2rem);
   border-radius: 10px;
-  background: rgb(255 255 255 / 0.05);
+  background: var(--midnight);
+  box-shadow: 8px 8px 0 0 rgb(23 22 20 / 0.22);
+}
+
+.hf-dx-points li p {
+  color: rgb(255 255 255 / 0.72);
 }
 
 /* Where this started: heading left, Demo Day photo right, captioned reel below. */
@@ -951,12 +919,13 @@
 
 .hf-dx-past-img {
   aspect-ratio: 4 / 3;
-  border-radius: 8px;
+  border-radius: 10px;
+  box-shadow: 12px 12px 0 0 rgb(23 22 20 / 0.22);
 }
 
 .hf-dx-past-fig figcaption {
-  margin-top: 0.6rem;
-  color: rgb(255 255 255 / 0.55);
+  margin-top: 1.1rem;
+  color: var(--muted);
   font-size: 0.75rem;
   font-weight: 500;
 }
@@ -1008,5 +977,47 @@
 
   .hf-dx-points {
     gap: 0.75rem;
+  }
+}
+
+/* Yellow section, as on the home page: ink type, ink-edged label mark. */
+.hf-dx-yellow {
+  background: var(--yellow);
+  color: var(--ink);
+  --rule: var(--rule-dark);
+  --muted: rgb(23 22 20 / 0.65);
+  --body: rgb(23 22 20 / 0.8);
+}
+
+.hf-dx-yellow .hf-label::before {
+  background: var(--ink);
+}
+
+.hf-dx-yellow .hf-dx-points h3 {
+  color: var(--white);
+}
+
+/* Venue photos on the dark section get the home page's soft white offset. */
+.hf-dx-venue-shot .hf-zoom {
+  box-shadow: 8px 8px 0 0 rgb(255 255 255 / 0.14);
+}
+
+/* The home page logo in the top bar. */
+.hf-dx-bar .hf-nav-brand {
+  color: var(--white);
+}
+
+@media (max-width: 767.98px) {
+  .hf-dx-flow li,
+  .hf-dx-points li {
+    box-shadow: 6px 6px 0 0 rgb(var(--yellow-rgb));
+  }
+
+  .hf-dx-yellow .hf-dx-points li {
+    box-shadow: 6px 6px 0 0 rgb(23 22 20 / 0.22);
+  }
+
+  .hf-dx-bar .hf-nav-descriptor {
+    display: none;
   }
 }

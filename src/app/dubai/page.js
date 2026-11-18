@@ -6,6 +6,7 @@ import { ICONS } from "@/components/SocialIcons";
 import RevealObserver from "@/components/sections/RevealObserver";
 import "@/components/sections/sections.css";
 import "@/components/hero/Hero.css";
+import "@/components/hero/SiteNav.css";
 import "./dubai.css";
 
 export const metadata = {
@@ -101,8 +102,14 @@ export default function DubaiMeet() {
   return (
     <div className="hf-dx">
       <header className="hf-dx-bar">
-        <Link href="/" className="hf-dx-logo" aria-label="Hardware First home">
-          H<span>F</span>
+        <Link href="/" className="hf-nav-brand" aria-label="Hardware First Residency home">
+          <span className="hf-nav-mark" aria-hidden="true">
+            H<span>F</span>
+          </span>
+          <span className="hf-nav-wordmark">
+            Hardware <span className="hf-first">First</span>
+          </span>
+          <span className="hf-nav-descriptor hf-res">Residency</span>
         </Link>
         <nav className="hf-dx-nav" aria-label="Dubai meet">
           <Link href="/" className="hf-dx-home">
@@ -187,7 +194,7 @@ export default function DubaiMeet() {
         </section>
 
         {/* What this is, and how the afternoon goes */}
-        <section className="hf-sec hf-sec--dark hf-dx-sec hf-dx-why" aria-labelledby="dx-why">
+        <section className="hf-sec hf-sec--mineral hf-dx-sec hf-dx-why" aria-labelledby="dx-why">
           <div className="hf-dx-head" data-reveal>
             <p className="hf-label">What this is</p>
             <h2 id="dx-why" className="hf-display">
@@ -228,7 +235,7 @@ export default function DubaiMeet() {
         </section>
 
         {/* What to bring */}
-        <section className="hf-sec hf-sec--dark hf-dx-sec" aria-labelledby="dx-bring">
+        <section className="hf-sec hf-dx-sec hf-dx-yellow" aria-labelledby="dx-bring">
           <div className="hf-dx-head" data-reveal>
             <p className="hf-label">What to bring</p>
             <h2 id="dx-bring" className="hf-display">
@@ -286,7 +293,7 @@ export default function DubaiMeet() {
         </section>
 
         {/* Where this started: Hyderabad, clearly labelled as such */}
-        <section className="hf-sec hf-sec--dark hf-dx-sec hf-dx-past" aria-labelledby="dx-past">
+        <section className="hf-sec hf-sec--mineral hf-dx-sec hf-dx-past" aria-labelledby="dx-past">
           <div className="hf-dx-head" data-reveal>
             <p className="hf-label">Where this started</p>
             <h2 id="dx-past" className="hf-display">
@@ -360,7 +367,16 @@ export default function DubaiMeet() {
             </div>
             <p className="hf-dx-signoff">See you Sunday.</p>
             <p className="hf-dx-hosts">
-              Brought to you by <strong>Capt. Venkat</strong> and{" "}
+              Brought to you by{" "}
+              {M.venkatX ? (
+                <a href={M.venkatX} target="_blank" rel="noopener noreferrer">
+                  Capt. Venkat
+                  <span className="sr-only"> (opens in a new tab)</span>
+                </a>
+              ) : (
+                <strong>Capt. Venkat</strong>
+              )}{" "}
+              and{" "}
               <a href={PARTNERS.laksh.href} target="_blank" rel="noopener noreferrer">
                 Lakshveer Rao
                 <span className="sr-only"> (opens in a new tab)</span>

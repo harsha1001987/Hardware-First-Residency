@@ -108,4 +108,6 @@ export const DUBAI_MEET = {
   places: 12,
   rsvpUrl: "https://luma.com/fskq095j",
   tWorksPost: "https://lnkd.in/p/dEQ2VQuH",
+  // Capt. Venkat's X profile. Add the full https://x.com/... link to turn his name into a link.
+  venkatX: "",
 };
